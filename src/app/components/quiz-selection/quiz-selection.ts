@@ -90,6 +90,12 @@ import { QuizCategory } from '../../models/quiz.model';
       transform: none;
     }
     
+    .start-btn:disabled:hover {
+      background: #9ca3af; /* keep same gray */
+      transform: none;     /* prevent hover shift */
+      box-shadow: none;    /* remove any hover shadow if added */
+    }
+    
     .selection-container {
       max-width: 1200px;
       margin: 0 auto;
