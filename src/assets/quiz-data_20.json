@@ -1,0 +1,226 @@
+{
+  "title": "C# Interview Questions Quiz",
+  "description": "Test your knowledge of C# programming concepts",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is C#?",
+      "options": [
+        "A type-safe, object-oriented language used to create .Net applications with a component-oriented approach",
+        "A scripting language for web development only",
+        "A low-level systems programming language",
+        "A database query language"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a key feature of C#?",
+      "options": [
+        "Type-safe",
+        "Object-oriented",
+        "Direct memory manipulation like C++",
+        "Component-oriented"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 3,
+      "question": "What are classes in C#?",
+      "options": [
+        "Runtime execution environments",
+        "A concept or blueprint to define how data will be structured, stored, and managed within a program",
+        "Memory allocation units",
+        "Network communication protocols"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 4,
+      "question": "What are objects in C#?",
+      "options": [
+        "Static data containers",
+        "Memory addresses",
+        "Class instances that can represent characteristics of real-world entities",
+        "Function definitions"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 5,
+      "question": "Which class type cannot be used to create objects directly and requires inheritance?",
+      "options": [
+        "Static Class",
+        "Abstract Class",
+        "Partial Class",
+        "Sealed Class"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 6,
+      "question": "Which access modifier makes members accessible from anywhere in the code?",
+      "options": [
+        "Private",
+        "Protected",
+        "Internal",
+        "Public"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 7,
+      "question": "What is the first step in compiling C# code?",
+      "options": [
+        "Load the CLR (Common Language Runtime)",
+        "Compile source code into a managed module",
+        "Execute the assembly with CLR",
+        "Combine module with assembly code"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between 'break' and 'continue' statements?",
+      "options": [
+        "Both work the same way",
+        "Break exits the loop/switch, continue skips to next iteration",
+        "Continue exits the loop, break skips to next iteration",
+        "Break is for loops only, continue is for switches only"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "Which keyword is used to throw an exception in C#?",
+      "options": [
+        "try",
+        "catch",
+        "finally",
+        "throw"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 10,
+      "question": "What are the two accessors in C#?",
+      "options": [
+        "read and write",
+        "input and output",
+        "get and set",
+        "public and private"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 11,
+      "question": "Which symbol is used for single-line comments in C#?",
+      "options": [
+        "//",
+        "/* */",
+        "///",
+        "#"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What are static declared variables in C#?",
+      "options": [
+        "Variables that change frequently",
+        "Variables shared by all instances of a class with the same value",
+        "Variables that cannot be accessed",
+        "Variables that are automatically deleted"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 13,
+      "question": "What is the difference between Value Types and Reference Types?",
+      "options": [
+        "No difference",
+        "Value types store data directly, Reference types store a reference to data location",
+        "Reference types store data directly, Value types store a reference",
+        "Both store references only"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 14,
+      "question": "What are namespaces used for in C#?",
+      "options": [
+        "Memory management",
+        "Error handling",
+        "Organizing code and separating code that may use the same names",
+        "Database connections"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 15,
+      "question": "Why would you implement the 'using' statement in C#?",
+      "options": [
+        "To import libraries only",
+        "To manage and automatically release resources once an object has finished processing",
+        "To create new objects",
+        "To handle exceptions"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 16,
+      "question": "What's the main difference between Dispose() and Finalize()?",
+      "options": [
+        "They are identical",
+        "Dispose() guarantees garbage collection, Finalize() does not",
+        "Finalize() is faster than Dispose()",
+        "Dispose() is automatic, Finalize() is manual"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 17,
+      "question": "What is boxing in C#?",
+      "options": [
+        "Converting Reference Type to Value Type",
+        "Converting Value Type to Reference Type",
+        "Creating new objects",
+        "Memory allocation process"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 18,
+      "question": "Which parameter type stores the memory address within the method argument?",
+      "options": [
+        "Value parameter",
+        "Reference parameter",
+        "Output parameter",
+        "Input parameter"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 19,
+      "question": "How do you declare a nullable integer in C#?",
+      "options": [
+        "int i = null;",
+        "nullable int i = null;",
+        "int? i = null;",
+        "int i = nullable;"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 20,
+      "question": "What are constructors in C#?",
+      "options": [
+        "Methods for destroying objects",
+        "Special functions that share the class name and are called when creating objects",
+        "Variables that store class data",
+        "Operators for mathematical calculations"
+      ],
+      "correctAnswer": 1
+    }
+  ]
+}

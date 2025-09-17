@@ -1,0 +1,49 @@
+﻿<!-- src/app/components/question/question.html -->
+
+<div class="question-container">
+  <!-- Question -->
+  <div class="question-content">
+    <h2 class="question-title">
+      {{ questionNumber }}. {{ question.question }}
+    </h2>
+
+    <!-- Options -->
+    <div class="options-container">
+      <button
+        *ngFor="let option of question.options; let i = index"
+        class="option-button"
+        [ngClass]="{ 'selected': selectedOption === i }"
+        (click)="onOptionSelect(i)">
+        <div class="option-radio">
+          <div class="radio-outer">
+            <div class="radio-inner" *ngIf="selectedOption === i"></div>
+          </div>
+        </div>
+        <span class="option-text">{{ option }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="navigation-container">
+    <button
+      class="btn btn-secondary"
+      [disabled]="isFirstQuestion"
+      (click)="onPrevious()">
+      Previous
+    </button>
+
+    <div class="answer-status">
+      <span *ngIf="isAnswerSelected" class="answer-selected">
+        ✓ Answer selected
+      </span>
+    </div>
+
+    <button
+      class="btn btn-primary"
+      [disabled]="!isAnswerSelected"
+      (click)="onNext()">
+      {{ nextButtonText }}
+    </button>
+  </div>
+</div>

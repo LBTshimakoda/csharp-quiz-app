@@ -1,0 +1,446 @@
+﻿{
+  "title": "C# Interview Questions Quiz",
+  "description": "Test your knowledge of C# programming concepts",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is C#?",
+      "options": [
+        "A type-safe, object-oriented language used to create .Net applications with a component-oriented approach",
+        "A scripting language for web development only",
+        "A low-level systems programming language",
+        "A database query language"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a key feature of C#?",
+      "options": [
+        "Type-safe",
+        "Object-oriented",
+        "Direct memory manipulation like C++",
+        "Component-oriented"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 3,
+      "question": "What are classes in C#?",
+      "options": [
+        "Runtime execution environments",
+        "A concept or blueprint to define how data will be structured, stored, and managed within a program",
+        "Memory allocation units",
+        "Network communication protocols"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 4,
+      "question": "What are objects in C#?",
+      "options": [
+        "Static data containers",
+        "Memory addresses",
+        "Class instances that can represent characteristics of real-world entities",
+        "Function definitions"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 5,
+      "question": "Which class type cannot be used to create objects directly and requires inheritance?",
+      "options": [
+        "Static Class",
+        "Abstract Class",
+        "Partial Class",
+        "Sealed Class"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 6,
+      "question": "Which access modifier makes members accessible from anywhere in the code?",
+      "options": [
+        "Private",
+        "Protected",
+        "Internal",
+        "Public"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 7,
+      "question": "What is the first step in compiling C# code?",
+      "options": [
+        "Load the CLR (Common Language Runtime)",
+        "Compile source code into a managed module",
+        "Execute the assembly with CLR",
+        "Combine module with assembly code"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between 'break' and 'continue' statements?",
+      "options": [
+        "Both work the same way",
+        "Break exits the loop/switch, continue skips to next iteration",
+        "Continue exits the loop, break skips to next iteration",
+        "Break is for loops only, continue is for switches only"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "Which keyword is used to throw an exception in C#?",
+      "options": [
+        "try",
+        "catch",
+        "finally",
+        "throw"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 10,
+      "question": "What are the two accessors in C#?",
+      "options": [
+        "read and write",
+        "input and output",
+        "get and set",
+        "public and private"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 11,
+      "question": "Which symbol is used for single-line comments in C#?",
+      "options": [
+        "//",
+        "/* */",
+        "///",
+        "#"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What are static declared variables in C#?",
+      "options": [
+        "Variables that change frequently",
+        "Variables shared by all instances of a class with the same value",
+        "Variables that cannot be accessed",
+        "Variables that are automatically deleted"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 13,
+      "question": "What is the difference between Value Types and Reference Types?",
+      "options": [
+        "No difference",
+        "Value types store data directly, Reference types store a reference to data location",
+        "Reference types store data directly, Value types store a reference",
+        "Both store references only"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 14,
+      "question": "What are namespaces used for in C#?",
+      "options": [
+        "Memory management",
+        "Error handling",
+        "Organizing code and separating code that may use the same names",
+        "Database connections"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 15,
+      "question": "Why would you implement the 'using' statement in C#?",
+      "options": [
+        "To import libraries only",
+        "To manage and automatically release resources once an object has finished processing",
+        "To create new objects",
+        "To handle exceptions"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 16,
+      "question": "What's the main difference between Dispose() and Finalize()?",
+      "options": [
+        "They are identical",
+        "Dispose() guarantees garbage collection, Finalize() does not",
+        "Finalize() is faster than Dispose()",
+        "Dispose() is automatic, Finalize() is manual"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 17,
+      "question": "What is boxing in C#?",
+      "options": [
+        "Converting Reference Type to Value Type",
+        "Converting Value Type to Reference Type",
+        "Creating new objects",
+        "Memory allocation process"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 18,
+      "question": "Which parameter type stores the memory address within the method argument?",
+      "options": [
+        "Value parameter",
+        "Reference parameter",
+        "Output parameter",
+        "Input parameter"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 19,
+      "question": "How do you declare a nullable integer in C#?",
+      "options": [
+        "int i = null;",
+        "nullable int i = null;",
+        "int? i = null;",
+        "int i = nullable;"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 20,
+      "question": "What are constructors in C#?",
+      "options": [
+        "Methods for destroying objects",
+        "Special functions that share the class name and are called when creating objects",
+        "Variables that store class data",
+        "Operators for mathematical calculations"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 21,
+      "question": "What symbol precedes a destructor method name?",
+      "options": [
+        "@",
+        "#",
+        "~",
+        "&"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 22,
+      "question": "Which collection type follows Last-In-First-Out (LIFO) structure?",
+      "options": [
+        "ArrayList",
+        "Queue",
+        "HashTable",
+        "Stack"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 23,
+      "question": "What is a jagged array in C#?",
+      "options": [
+        "An array with missing elements",
+        "An array of arrays where each member array can be a different size",
+        "A circular array structure",
+        "An array that cannot be modified"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 24,
+      "question": "Which namespace is used for file handling in C#?",
+      "options": [
+        "System.Files",
+        "System.IO",
+        "System.Data",
+        "System.Storage"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 25,
+      "question": "What is an interface class in C#?",
+      "options": [
+        "A concrete class with full implementation",
+        "An abstract class that only contains public abstract methods and properties",
+        "A class for database connections",
+        "A class for user interface design"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 26,
+      "question": "What type of data type is a struct in C#?",
+      "options": [
+        "Reference type",
+        "Value type",
+        "Pointer type",
+        "Dynamic type"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 27,
+      "question": "Where are structs allocated in memory?",
+      "options": [
+        "On the heap",
+        "On the stack or inline",
+        "In database storage",
+        "In external files"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 28,
+      "question": "What is managed code in C#?",
+      "options": [
+        "Code without the .NET framework",
+        "Code developed with the .NET framework and executed by CLR",
+        "Code that manages databases",
+        "Code written in assembly language"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 29,
+      "question": "What keyword is used to create a virtual method in the base class?",
+      "options": [
+        "virtual",
+        "override",
+        "abstract",
+        "base"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 30,
+      "question": "What is reflection in C#?",
+      "options": [
+        "Code optimization technique",
+        "A process for describing metadata for types, fields, and methods at runtime",
+        "Memory management process",
+        "Error handling mechanism"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 31,
+      "question": "What is serialization in C#?",
+      "options": [
+        "A process to create multiple threads",
+        "A conversion process that changes object data into a byte stream",
+        "A method to sort arrays",
+        "A technique to compress files"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 32,
+      "question": "What is thread pooling used for?",
+      "options": [
+        "Creating new threads for each task",
+        "Creating a collection of reusable threads for tasks",
+        "Deleting unused threads",
+        "Monitoring thread performance"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 33,
+      "question": "Can you use 'this' in a static method?",
+      "options": [
+        "Yes, always",
+        "No, because static methods don't belong to any particular instance",
+        "Yes, but only in constructors",
+        "Yes, but only with parameters"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 34,
+      "question": "What keyword is used for constructor chaining within the same class?",
+      "options": [
+        ":base()",
+        ":this()",
+        ":super()",
+        ":parent()"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 35,
+      "question": "What is the first state in a thread's lifecycle?",
+      "options": [
+        "Running",
+        "Runnable",
+        "Unstarted State (New)",
+        "Not Runnable"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 36,
+      "question": "What are async and await used for in C#?",
+      "options": [
+        "Synchronous programming only",
+        "Running methods independently without blocking the main program",
+        "Error handling",
+        "Memory management"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 37,
+      "question": "What are indexers in C# sometimes called?",
+      "options": [
+        "Smart arrays",
+        "Dynamic lists",
+        "Virtual tables",
+        "Memory pointers"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 38,
+      "question": "What's the main difference between 'ref' and 'out' parameters?",
+      "options": [
+        "No difference",
+        "ref requires initialization before passing, out requires initialization before returning",
+        "out requires initialization before passing, ref requires initialization before returning",
+        "Both require initialization at the same time"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 39,
+      "question": "What is a singleton pattern in C#?",
+      "options": [
+        "A class that can have multiple instances",
+        "A class designed to have only one instance with global access",
+        "A method for sorting data",
+        "A type of interface"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 40,
+      "question": "What are delegates in C#?",
+      "options": [
+        "Database connection objects",
+        "Type-safe function pointers that can treat functions like data",
+        "Memory management tools",
+        "User interface components"
+      ],
+      "correctAnswer": 1
+    }
+  ]
+}
