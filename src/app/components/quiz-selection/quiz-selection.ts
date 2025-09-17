@@ -89,7 +89,7 @@ import { QuizCategory } from '../../models/quiz.model';
       cursor: not-allowed;
       transform: none;
     }
-    <object data="" type=""></object>
+    
     .selection-container {
       max-width: 1200px;
       margin: 0 auto;
