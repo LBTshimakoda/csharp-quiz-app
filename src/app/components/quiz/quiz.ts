@@ -4,129 +4,159 @@ import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { QuizService } from '../../services/quiz.service';
-import { QuizData, QuizState } from '../../models/quiz.model';
+import { QuizData, QuizState, QuizCategory, AppState } from '../../models/quiz.model';
 import { QuestionComponent } from '../question/question';
 import { ResultsComponent } from '../results/results';
+import { QuizSelectionComponent } from '../quiz-selection/quiz-selection';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [CommonModule, QuestionComponent, ResultsComponent],
+  imports: [CommonModule, QuestionComponent, ResultsComponent, QuizSelectionComponent],
   template: `
     <div class="quiz-container">
-      <!-- Loading State -->
-      @if (loading) {
-        <div class="loading-container">
-          <div class="spinner"></div>
-          <p>Loading quiz...</p>
-        </div>
+      
+      <!-- Quiz Selection View -->
+      @if (appState.currentView === 'selection') {
+        <app-quiz-selection (quizSelected)="onQuizSelected($event)"></app-quiz-selection>
       }
 
-      <!-- Error State -->
-      @if (error) {
-        <div class="error-container">
-          <div class="error-message">
-            <h2>Oops! Something went wrong</h2>
-            <p>{{ error }}</p>
-            <button class="btn btn-primary" (click)="loadQuiz()">Try Again</button>
+      <!-- Quiz View -->
+      @if (appState.currentView === 'quiz') {
+        
+        <!-- Loading State -->
+        @if (loading) {
+          <div class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading quiz...</p>
           </div>
-        </div>
-      }
+        }
 
-      <!-- Quiz Content -->
-      @if (!loading && !error && quizData && quizState) {
-        <div class="quiz-content">
-          
-          <!-- Show Results -->
-          @if (quizState.showResults) {
-            <app-results 
-              [quizData]="quizData"
-              (restartQuiz)="onRestartQuiz()">
-            </app-results>
-          }
-
-          <!-- Quiz Completion Screen -->
-          @if (quizState.isCompleted && !quizState.showResults) {
-            <div class="completion-container">
-              <div class="completion-content">
-                <div class="completion-icon">
-                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
-                  </svg>
-                </div>
-                <h1>Quiz Completed!</h1>
-                <p>You've answered all {{ quizData.questions.length }} questions.</p>
-                <p>Ready to see your results? Click the button below to find out how well you did!</p>
-                <button class="btn btn-primary btn-large" (click)="quizService.showResults()">
-                  Show Results
-                </button>
+        <!-- Error State -->
+        @if (error) {
+          <div class="error-container">
+            <div class="error-message">
+              <h2>Oops! Something went wrong</h2>
+              <p>{{ error }}</p>
+              <div class="error-actions">
+                <button class="btn btn-primary" (click)="loadQuiz()">Try Again</button>
+                <button class="btn btn-secondary" (click)="backToSelection()">Choose Different Quiz</button>
               </div>
             </div>
-          }
+          </div>
+        }
 
-          <!-- Active Quiz -->
-          @if (!quizState.isCompleted && !quizState.showResults) {
-            <div class="active-quiz">
-              <!-- Header -->
-              <div class="quiz-header">
-                <div class="quiz-icon">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                  </svg>
-                </div>
-                <h1>{{ quizData.title }}</h1>
-                <p>{{ quizData.description }}</p>
-              </div>
+        <!-- Quiz Content -->
+        @if (!loading && !error && quizData && quizState) {
+          <div class="quiz-content">
+            
+            <!-- Quiz Header with Back Button -->
+            <div class="quiz-nav">
+              <button class="back-btn" (click)="backToSelection()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+                <span>Back to Quiz Selection</span>
+              </button>
+            </div>
+            
+            <!-- Show Results -->
+            @if (quizState.showResults) {
+              <app-results 
+                [quizData]="quizData"
+                (restartQuiz)="onRestartQuiz()">
+              </app-results>
+            }
 
-              <!-- Progress Bar -->
-              <div class="progress-section">
-                <div class="progress-info">
-                  <span>Question {{ quizState.currentQuestionIndex + 1 }} of {{ quizData.questions.length }}</span>
-                  <span>{{ getProgressPercentage() }}% Complete</span>
-                </div>
-                <div class="progress-bar">
-                  <div 
-                    class="progress-fill"
-                    [style.width.%]="getProgressPercentage()">
+            <!-- Quiz Completion Screen -->
+            @if (quizState.isCompleted && !quizState.showResults) {
+              <div class="completion-container">
+                <div class="completion-content">
+                  <div class="completion-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                    </svg>
                   </div>
+                  <h1>Quiz Completed!</h1>
+                  <p>You've answered all {{ quizData.questions.length }} questions.</p>
+                  <p>Ready to see your results? Click the button below to find out how well you did!</p>
+                  <button class="btn btn-primary btn-large" (click)="quizService.showResults()">
+                    Show Results
+                  </button>
                 </div>
               </div>
+            }
 
-              <!-- Question Component -->
-              <app-question 
-                [question]="quizData.questions[quizState.currentQuestionIndex]"
-                [selectedAnswer]="quizState.selectedAnswers[quizData.questions[quizState.currentQuestionIndex].id]"
-                [questionNumber]="quizState.currentQuestionIndex + 1"
-                [isFirstQuestion]="quizState.currentQuestionIndex === 0"
-                [isLastQuestion]="quizState.currentQuestionIndex === quizData.questions.length - 1"
-                [totalQuestions]="quizData.questions.length">
-              </app-question>
-
-              <!-- Progress Summary -->
-              <div class="progress-summary">
-                <h3>Progress Summary:</h3>
-                <div class="question-indicators">
-                  @for (question of quizData.questions; track $index) {
-                    <div 
-                      class="question-indicator"
-                      [ngClass]="{
-                        'current': $index === quizState.currentQuestionIndex,
-                        'answered': quizService.isQuestionAnswered($index),
-                        'unanswered': !quizService.isQuestionAnswered($index) && $index !== quizState.currentQuestionIndex
-                      }">
-                      {{ $index + 1 }}
+            <!-- Active Quiz -->
+            @if (!quizState.isCompleted && !quizState.showResults) {
+              <div class="active-quiz">
+                <!-- Header -->
+                <div class="quiz-header">
+                  @if (appState.selectedQuiz) {
+                    <div class="quiz-icon">
+                      <div [innerHTML]="appState.selectedQuiz.icon"></div>
                     </div>
                   }
+                  <h1>{{ quizData.title }}</h1>
+                  <p>{{ quizData.description }}</p>
+                  <div class="quiz-meta">
+                    @if (appState.selectedQuiz) {
+                      <span class="difficulty-badge" [ngClass]="'badge-' + appState.selectedQuiz.difficulty.toLowerCase()">
+                        {{ appState.selectedQuiz.difficulty }}
+                      </span>
+                    }
+                  </div>
                 </div>
-                <p class="summary-text">
-                  Answered: {{ quizService.getTotalAnswered() }} / {{ quizData.questions.length }}
-                </p>
+
+                <!-- Progress Bar -->
+                <div class="progress-section">
+                  <div class="progress-info">
+                    <span>Question {{ quizState.currentQuestionIndex + 1 }} of {{ quizData.questions.length }}</span>
+                    <span>{{ getProgressPercentage() }}% Complete</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div 
+                      class="progress-fill"
+                      [style.width.%]="getProgressPercentage()">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Question Component -->
+                <app-question 
+                  [question]="quizData.questions[quizState.currentQuestionIndex]"
+                  [selectedAnswer]="quizState.selectedAnswers[quizData.questions[quizState.currentQuestionIndex].id]"
+                  [questionNumber]="quizState.currentQuestionIndex + 1"
+                  [isFirstQuestion]="quizState.currentQuestionIndex === 0"
+                  [isLastQuestion]="quizState.currentQuestionIndex === quizData.questions.length - 1"
+                  [totalQuestions]="quizData.questions.length">
+                </app-question>
+
+                <!-- Progress Summary -->
+                <div class="progress-summary">
+                  <h3>Progress Summary:</h3>
+                  <div class="question-indicators">
+                    @for (question of quizData.questions; track $index) {
+                      <div 
+                        class="question-indicator"
+                        [ngClass]="{
+                          'current': $index === quizState.currentQuestionIndex,
+                          'answered': quizService.isQuestionAnswered($index),
+                          'unanswered': !quizService.isQuestionAnswered($index) && $index !== quizState.currentQuestionIndex
+                        }">
+                        {{ $index + 1 }}
+                      </div>
+                    }
+                  </div>
+                  <p class="summary-text">
+                    Answered: {{ quizService.getTotalAnswered() }} / {{ quizData.questions.length }}
+                  </p>
+                </div>
               </div>
-            </div>
-          }
-        </div>
+            }
+          </div>
+        }
       }
     </div>
   `,
@@ -134,6 +164,31 @@ import { ResultsComponent } from '../results/results';
     .quiz-container {
       max-width: 1000px;
       margin: 0 auto;
+    }
+
+    .quiz-nav {
+      margin-bottom: 24px;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .back-btn:hover {
+      background: #f9fafb;
+      color: #374151;
+      border-color: #d1d5db;
     }
 
     .loading-container {
@@ -190,6 +245,13 @@ import { ResultsComponent } from '../results/results';
       margin-bottom: 24px;
     }
 
+    .error-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .completion-container {
       display: flex;
       justify-content: center;
@@ -242,6 +304,8 @@ import { ResultsComponent } from '../results/results';
 
     .quiz-icon svg {
       color: #2563eb;
+      width: 48px;
+      height: 48px;
     }
 
     .quiz-header h1 {
@@ -254,6 +318,37 @@ import { ResultsComponent } from '../results/results';
     .quiz-header p {
       color: #6b7280;
       font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .quiz-meta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .difficulty-badge {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-beginner {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-intermediate {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-advanced {
+      background: #fde2e8;
+      color: #be185d;
     }
 
     .progress-section {
@@ -369,6 +464,15 @@ import { ResultsComponent } from '../results/results';
       background-color: #1d4ed8;
     }
 
+    .btn-secondary {
+      background-color: #e5e7eb;
+      color: #374151;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background-color: #d1d5db;
+    }
+
     .btn-large {
       padding: 16px 32px;
       font-size: 16px;
@@ -397,20 +501,32 @@ import { ResultsComponent } from '../results/results';
         height: 32px;
         font-size: 13px;
       }
+
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .error-actions .btn {
+        min-width: 200px;
+      }
     }
   `]
 })
 export class QuizComponent implements OnInit, OnDestroy {
   quizData: QuizData | null = null;
   quizState: QuizState | null = null;
-  loading = true;
+  appState: AppState = {
+    currentView: 'selection',
+    selectedQuiz: null
+  };
+  loading = false;
   error: string | null = null;
 
   quizService = inject(QuizService);
   private subscriptions: Subscription = new Subscription();
 
   ngOnInit(): void {
-    this.loadQuiz();
     this.subscribeToQuizState();
   }
 
@@ -418,18 +534,27 @@ export class QuizComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  loadQuiz(): void {
+  onQuizSelected(category: QuizCategory): void {
+    this.appState.selectedQuiz = category;
+    this.appState.currentView = 'quiz';
+    this.loadQuiz(category.dataFile);
+  }
+
+  loadQuiz(dataFile?: string): void {
     this.loading = true;
     this.error = null;
+    
+    const fileName = dataFile || this.appState.selectedQuiz?.dataFile || 'quiz-data.json';
+    
     this.subscriptions.add(
-      this.quizService.loadQuizData().subscribe({
+      this.quizService.loadQuizData(fileName).subscribe({
         next: (data) => {
           this.quizData = data;
           this.loading = false;
         },
         error: (error) => {
           console.error('Error loading quiz data:', error);
-          this.error = 'Failed to load quiz data. Please try again.';
+          this.error = `Failed to load quiz data from ${fileName}. Please try again.`;
           this.loading = false;
         }
       })
@@ -446,6 +571,14 @@ export class QuizComponent implements OnInit, OnDestroy {
 
   onRestartQuiz(): void {
     this.quizService.resetQuiz();
+  }
+
+  backToSelection(): void {
+    this.quizService.resetQuiz();
+    this.appState.currentView = 'selection';
+    this.appState.selectedQuiz = null;
+    this.quizData = null;
+    this.error = null;
   }
 
   getProgressPercentage(): number {

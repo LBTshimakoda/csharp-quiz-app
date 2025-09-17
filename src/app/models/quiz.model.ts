@@ -33,3 +33,22 @@ export interface QuizState {
   isCompleted: boolean;
   showResults: boolean;
 }
+
+// New interfaces for quiz selection
+export interface QuizCategory {
+  id: string;
+  title: string;
+  description: string;
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  questionCount: number;
+  estimatedTime: string;
+  icon: string;
+  color: string;
+  dataFile: string;
+  disabled: boolean;
+}
+
+export interface AppState {
+  currentView: 'selection' | 'quiz';
+  selectedQuiz: QuizCategory | null;
+}

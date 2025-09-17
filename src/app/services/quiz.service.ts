@@ -21,8 +21,8 @@ export class QuizService {
 
   public quizState$ = this.quizStateSubject.asObservable();
 
-  loadQuizData(): Observable<QuizData> {
-    return this.http.get<QuizData>('assets/quiz-data.json').pipe(
+  loadQuizData(fileName: string = 'quiz-data.json'): Observable<QuizData> {
+    return this.http.get<QuizData>(`assets/${fileName}`).pipe(
       map(data => {
         this.quizData = data;
         return data;
