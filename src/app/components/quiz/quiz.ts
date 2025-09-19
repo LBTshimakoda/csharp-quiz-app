@@ -91,38 +91,7 @@ import { QuizSelectionComponent } from '../quiz-selection/quiz-selection';
             <!-- Active Quiz -->
             @if (!quizState.isCompleted && !quizState.showResults) {
               <div class="active-quiz">
-                <!-- Header -->
-                <div class="quiz-header">
-                  @if (appState.selectedQuiz) {
-                    <div class="quiz-icon">
-                      <div [innerHTML]="appState.selectedQuiz.icon"></div>
-                    </div>
-                  }
-                  <h1>{{ quizData.title }}</h1>
-                  <p>{{ quizData.description }}</p>
-                  <div class="quiz-meta">
-                    @if (appState.selectedQuiz) {
-                      <span class="difficulty-badge" [ngClass]="'badge-' + appState.selectedQuiz.difficulty.toLowerCase()">
-                        {{ appState.selectedQuiz.difficulty }}
-                      </span>
-                    }
-                  </div>
-                </div>
-
-                <!-- Progress Bar -->
-                <div class="progress-section">
-                  <div class="progress-info">
-                    <span>Question {{ quizState.currentQuestionIndex + 1 }} of {{ quizData.questions.length }}</span>
-                    <span>{{ getProgressPercentage() }}% Complete</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div 
-                      class="progress-fill"
-                      [style.width.%]="getProgressPercentage()">
-                    </div>
-                  </div>
-                </div>
-
+                
                 <!-- Question Component -->
                 <app-question 
                   [question]="quizData.questions[quizState.currentQuestionIndex]"
@@ -133,26 +102,6 @@ import { QuizSelectionComponent } from '../quiz-selection/quiz-selection';
                   [totalQuestions]="quizData.questions.length">
                 </app-question>
 
-                <!-- Progress Summary -->
-                <div class="progress-summary">
-                  <h3>Progress Summary:</h3>
-                  <div class="question-indicators">
-                    @for (question of quizData.questions; track $index) {
-                      <div 
-                        class="question-indicator"
-                        [ngClass]="{
-                          'current': $index === quizState.currentQuestionIndex,
-                          'answered': quizService.isQuestionAnswered($index),
-                          'unanswered': !quizService.isQuestionAnswered($index) && $index !== quizState.currentQuestionIndex
-                        }">
-                        {{ $index + 1 }}
-                      </div>
-                    }
-                  </div>
-                  <p class="summary-text">
-                    Answered: {{ quizService.getTotalAnswered() }} / {{ quizData.questions.length }}
-                  </p>
-                </div>
               </div>
             }
           </div>
@@ -167,14 +116,14 @@ import { QuizSelectionComponent } from '../quiz-selection/quiz-selection';
     }
 
     .quiz-nav {
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .back-btn {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 16px;
+      padding: 10px 14px;
       background: white;
       border: 1px solid #e5e7eb;
       border-radius: 8px;
@@ -289,153 +238,6 @@ import { QuizSelectionComponent } from '../quiz-selection/quiz-selection';
       line-height: 1.6;
     }
 
-    .quiz-header {
-      text-align: center;
-      margin-bottom: 32px;
-      background-color: white;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .quiz-icon {
-      margin-bottom: 16px;
-    }
-
-    .quiz-icon svg {
-      color: #2563eb;
-      width: 48px;
-      height: 48px;
-    }
-
-    .quiz-header h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #1f2937;
-      margin-bottom: 8px;
-    }
-
-    .quiz-header p {
-      color: #6b7280;
-      font-size: 1.1rem;
-      margin-bottom: 16px;
-    }
-
-    .quiz-meta {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .difficulty-badge {
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .badge-beginner {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .badge-intermediate {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .badge-advanced {
-      background: #fde2e8;
-      color: #be185d;
-    }
-
-    .progress-section {
-      margin-bottom: 32px;
-      background-color: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .progress-info {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      font-size: 14px;
-      color: #6b7280;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 12px;
-      background-color: #e5e7eb;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background-color: #2563eb;
-      transition: width 0.3s ease;
-      border-radius: 6px;
-    }
-
-    .progress-summary {
-      background-color: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      margin-top: 32px;
-    }
-
-    .progress-summary h3 {
-      font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 16px;
-    }
-
-    .question-indicators {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .question-indicator {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .question-indicator.current {
-      background-color: #2563eb;
-      color: white;
-    }
-
-    .question-indicator.answered {
-      background-color: #dcfce7;
-      color: #166534;
-    }
-
-    .question-indicator.unanswered {
-      background-color: #e5e7eb;
-      color: #6b7280;
-    }
-
-    .summary-text {
-      font-size: 14px;
-      color: #6b7280;
-      margin: 0;
-    }
-
     .btn {
       padding: 12px 24px;
       border: none;
@@ -479,26 +281,12 @@ import { QuizSelectionComponent } from '../quiz-selection/quiz-selection';
     }
 
     @media (max-width: 768px) {
-      .quiz-header {
-        padding: 24px 16px;
+      .quiz-nav {
+        margin-bottom: 12px;
       }
-      
-      .quiz-header h1 {
-        font-size: 2rem;
-      }
-      
-      .progress-section,
-      .progress-summary {
-        padding: 16px;
-      }
-      
-      .question-indicators {
-        justify-content: center;
-      }
-      
-      .question-indicator {
-        width: 32px;
-        height: 32px;
+
+      .back-btn {
+        padding: 8px 12px;
         font-size: 13px;
       }
 
