@@ -5,6 +5,7 @@ export interface QuizQuestion {
   question: string;
   options: string[];
   correctAnswer: number;
+  explanation?: string; // Extended explanation for the correct answer
 }
 
 export interface QuizData {

@@ -1,6 +1,6 @@
 {
-  "title": "C# Interview Questions Quiz",
-  "description": "Test your knowledge of C# programming concepts",
+  "title": "C# Fundamentals Quiz",
+  "description": "Test your knowledge of C# basics, syntax, OOP concepts, and core language features",
   "questions": [
     {
       "id": 1,
@@ -11,7 +11,8 @@
         "A low-level systems programming language",
         "A database query language"
       ],
-      "correctAnswer": 0
+      "correctAnswer": 0,
+      "explanation": "C# is a modern, type-safe, object-oriented programming language developed by Microsoft. It's designed to work with the .NET framework and supports component-oriented programming, making it ideal for building various types of applications including web, desktop, mobile, and cloud-based solutions."
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
         "Direct memory manipulation like C++",
         "Component-oriented"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "Unlike C++, C# does not allow direct memory manipulation. C# is designed to be memory-safe and uses garbage collection to automatically manage memory. This makes C# safer and easier to use than languages that require manual memory management, but it also means developers cannot directly manipulate memory addresses or pointers."
     },
     {
       "id": 3,
@@ -33,32 +35,11 @@
         "Memory allocation units",
         "Network communication protocols"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "Classes in C# serve as blueprints or templates that define the structure and behavior of objects. They encapsulate data (fields/properties) and functionality (methods) together. When you create an instance of a class, you get an object that follows the structure and behavior defined by that class."
     },
     {
       "id": 4,
-      "question": "What are objects in C#?",
-      "options": [
-        "Static data containers",
-        "Memory addresses",
-        "Class instances that can represent characteristics of real-world entities",
-        "Function definitions"
-      ],
-      "correctAnswer": 2
-    },
-    {
-      "id": 5,
-      "question": "Which class type cannot be used to create objects directly and requires inheritance?",
-      "options": [
-        "Static Class",
-        "Abstract Class",
-        "Partial Class",
-        "Sealed Class"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 6,
       "question": "Which access modifier makes members accessible from anywhere in the code?",
       "options": [
         "Private",
@@ -66,120 +47,11 @@
         "Internal",
         "Public"
       ],
-      "correctAnswer": 3
+      "correctAnswer": 3,
+      "explanation": "The 'public' access modifier provides the most permissive access level. Public members can be accessed from any other code in the same assembly or another assembly that references it. This includes code in different classes, namespaces, or even different projects."
     },
     {
-      "id": 7,
-      "question": "What is the first step in compiling C# code?",
-      "options": [
-        "Load the CLR (Common Language Runtime)",
-        "Compile source code into a managed module",
-        "Execute the assembly with CLR",
-        "Combine module with assembly code"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 8,
-      "question": "What is the difference between 'break' and 'continue' statements?",
-      "options": [
-        "Both work the same way",
-        "Break exits the loop/switch, continue skips to next iteration",
-        "Continue exits the loop, break skips to next iteration",
-        "Break is for loops only, continue is for switches only"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 9,
-      "question": "Which keyword is used to throw an exception in C#?",
-      "options": [
-        "try",
-        "catch",
-        "finally",
-        "throw"
-      ],
-      "correctAnswer": 3
-    },
-    {
-      "id": 10,
-      "question": "What are the two accessors in C#?",
-      "options": [
-        "read and write",
-        "input and output",
-        "get and set",
-        "public and private"
-      ],
-      "correctAnswer": 2
-    },
-    {
-      "id": 11,
-      "question": "Which symbol is used for single-line comments in C#?",
-      "options": [
-        "//",
-        "/* */",
-        "///",
-        "#"
-      ],
-      "correctAnswer": 0
-    },
-    {
-      "id": 12,
-      "question": "What are static declared variables in C#?",
-      "options": [
-        "Variables that change frequently",
-        "Variables shared by all instances of a class with the same value",
-        "Variables that cannot be accessed",
-        "Variables that are automatically deleted"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 13,
-      "question": "What is the difference between Value Types and Reference Types?",
-      "options": [
-        "No difference",
-        "Value types store data directly, Reference types store a reference to data location",
-        "Reference types store data directly, Value types store a reference",
-        "Both store references only"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 14,
-      "question": "What are namespaces used for in C#?",
-      "options": [
-        "Memory management",
-        "Error handling",
-        "Organizing code and separating code that may use the same names",
-        "Database connections"
-      ],
-      "correctAnswer": 2
-    },
-    {
-      "id": 15,
-      "question": "Why would you implement the 'using' statement in C#?",
-      "options": [
-        "To import libraries only",
-        "To manage and automatically release resources once an object has finished processing",
-        "To create new objects",
-        "To handle exceptions"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 16,
-      "question": "What's the main difference between Dispose() and Finalize()?",
-      "options": [
-        "They are identical",
-        "Dispose() guarantees garbage collection, Finalize() does not",
-        "Finalize() is faster than Dispose()",
-        "Dispose() is automatic, Finalize() is manual"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 17,
+      "id": 5,
       "question": "What is boxing in C#?",
       "options": [
         "Converting Reference Type to Value Type",
@@ -187,21 +59,11 @@
         "Creating new objects",
         "Memory allocation process"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "Boxing is the process of converting a value type to a reference type. When a value type is boxed, it's wrapped in an object and stored on the heap. For example, when you assign an int to an object variable, the int value gets boxed. This process can have performance implications as it involves heap allocation."
     },
     {
-      "id": 18,
-      "question": "Which parameter type stores the memory address within the method argument?",
-      "options": [
-        "Value parameter",
-        "Reference parameter",
-        "Output parameter",
-        "Input parameter"
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": 19,
+      "id": 6,
       "question": "How do you declare a nullable integer in C#?",
       "options": [
         "int i = null;",
@@ -209,10 +71,11 @@
         "int? i = null;",
         "int i = nullable;"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "The '?' syntax is a shorthand for declaring nullable value types in C#. 'int?' is equivalent to 'Nullable<int>'. This allows value types to have a null value in addition to their normal range of values, which is useful when working with databases or scenarios where a value might be missing."
     },
     {
-      "id": 20,
+      "id": 7,
       "question": "What are constructors in C#?",
       "options": [
         "Methods for destroying objects",
@@ -220,7 +83,164 @@
         "Variables that store class data",
         "Operators for mathematical calculations"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "Constructors are special methods in C# that have the same name as the class and are automatically called when an instance of the class is created. They're used to initialize the object's state and can accept parameters to customize the initialization process. A class can have multiple constructors with different parameter lists."
+    },
+    {
+      "id": 8,
+      "question": "Which collection type follows Last-In-First-Out (LIFO) structure?",
+      "options": [
+        "ArrayList",
+        "Queue",
+        "HashTable",
+        "Stack"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Stack follows the Last-In-First-Out (LIFO) principle, meaning the last element added is the first one to be removed. Think of it like a stack of plates - you add plates to the top and remove plates from the top. Common operations are Push (add) and Pop (remove)."
+    },
+    {
+      "id": 9,
+      "question": "What is an interface class in C#?",
+      "options": [
+        "A concrete class with full implementation",
+        "An abstract class that only contains public abstract methods and properties",
+        "A class for database connections",
+        "A class for user interface design"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An interface in C# defines a contract that implementing classes must follow. It contains only method signatures, properties, events, or indexers without any implementation. All members of an interface are implicitly public and abstract. Classes can implement multiple interfaces, providing a way to achieve multiple inheritance of type."
+    },
+    {
+      "id": 10,
+      "question": "What type of data type is a struct in C#?",
+      "options": [
+        "Reference type",
+        "Value type",
+        "Pointer type",
+        "Dynamic type"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Structs in C# are value types, which means they're stored on the stack (or inline in containing types) rather than on the heap. When you assign a struct to another variable, the entire value is copied. This makes structs more efficient for small, simple data structures but less suitable for large, complex objects."
+    },
+    {
+      "id": 11,
+      "question": "What keyword is used to create a virtual method in the base class?",
+      "options": [
+        "virtual",
+        "override",
+        "abstract",
+        "base"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The 'virtual' keyword allows a method in a base class to be overridden in derived classes. Virtual methods provide polymorphism - the ability for different classes to provide different implementations of the same method. Derived classes use the 'override' keyword to provide their own implementation."
+    },
+    {
+      "id": 12,
+      "question": "What is serialization in C#?",
+      "options": [
+        "A process to create multiple threads",
+        "A conversion process that changes object data into a byte stream",
+        "A method to sort arrays",
+        "A technique to compress files"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Serialization is the process of converting an object's state into a format that can be stored or transmitted. The serialized data can then be deserialized to recreate the original object. Common serialization formats include binary, XML, JSON, and SOAP. This is essential for saving object state, network communication, and data persistence."
+    },
+    {
+      "id": 13,
+      "question": "Can you use 'this' in a static method?",
+      "options": [
+        "Yes, always",
+        "No, because static methods don't belong to any particular instance",
+        "Yes, but only in constructors",
+        "Yes, but only with parameters"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'this' keyword refers to the current instance of a class. Since static methods belong to the type itself rather than to any specific instance, there is no 'current instance' to reference. Therefore, 'this' cannot be used in static methods, static constructors, or static property accessors."
+    },
+    {
+      "id": 14,
+      "question": "What are async and await used for in C#?",
+      "options": [
+        "Synchronous programming only",
+        "Running methods independently without blocking the main program",
+        "Error handling",
+        "Memory management"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The async and await keywords enable asynchronous programming in C#. They allow methods to run asynchronously without blocking the calling thread. This is particularly useful for I/O operations, web requests, or any long-running operations where you don't want to freeze the user interface or waste system resources waiting."
+    },
+    {
+      "id": 15,
+      "question": "What's the main difference between 'ref' and 'out' parameters?",
+      "options": [
+        "No difference",
+        "ref requires initialization before passing, out requires initialization before returning",
+        "out requires initialization before passing, ref requires initialization before returning",
+        "Both require initialization at the same time"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The key difference is initialization requirements: 'ref' parameters must be initialized before being passed to the method, while 'out' parameters must be initialized inside the method before it returns. 'ref' is used when you want to modify an existing value, while 'out' is used when a method needs to return multiple values."
+    },
+    {
+      "id": 16,
+      "question": "What is a singleton pattern in C#?",
+      "options": [
+        "A class that can have multiple instances",
+        "A class designed to have only one instance with global access",
+        "A method for sorting data",
+        "A type of interface"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Singleton pattern ensures that a class has only one instance and provides global access to that instance. It's useful when you need exactly one instance of a class to coordinate actions across the system, such as a configuration manager, logger, or database connection pool. The constructor is typically private to prevent direct instantiation."
+    },
+    {
+      "id": 17,
+      "question": "What are delegates in C#?",
+      "options": [
+        "Database connection objects",
+        "Type-safe function pointers that can treat functions like data",
+        "Memory management tools",
+        "User interface components"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Delegates in C# are type-safe function pointers that can hold references to both static and instance methods. They're similar to function pointers in C++ but are type-safe and object-oriented. Delegates are the foundation for events in C# and enable functional programming concepts like passing methods as parameters."
+    },
+    {
+      "id": 18,
+      "question": "Which namespace is used for file handling in C#?",
+      "options": [
+        "System.Files",
+        "System.IO",
+        "System.Data",
+        "System.Storage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The System.IO namespace contains classes for file and stream operations. It includes classes like File, FileStream, Directory, Path, StreamReader, and StreamWriter. This namespace provides comprehensive functionality for reading from and writing to files, working with directories, and handling various types of streams."
+    },
+    {
+      "id": 19,
+      "question": "What symbol is used for single-line comments in C#?",
+      "options": [
+        "//",
+        "/* */",
+        "///",
+        "#"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Double forward slashes (//) are used for single-line comments in C#. Everything after // on that line is treated as a comment and ignored by the compiler. For multi-line comments, /* */ is used, and /// is used for XML documentation comments that can be processed by documentation generation tools."
+    },
+    {
+      "id": 20,
+      "question": "What is the difference between Value Types and Reference Types?",
+      "options": [
+        "No difference",
+        "Value types store data directly, Reference types store a reference to data location",
+        "Reference types store data directly, Value types store a reference",
+        "Both store references only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Value types store their data directly in the memory location where the variable is allocated (usually on the stack). When you assign a value type to another variable, the actual data is copied. Reference types store a reference (address) to the actual data, which is stored on the heap. When you assign a reference type, only the reference is copied, not the actual data."
     }
   ]
 }

@@ -1,0 +1,273 @@
+﻿{
+  "title": "Web Development Fundamentals Quiz",
+  "description": "Test your HTML, CSS, responsive design, and modern web development practices",
+  "level": "Beginner",
+  "estimatedTime": "16-22 minutes",
+  "totalQuestions": 22,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is semantic HTML and why is it important?",
+      "options": [
+        "HTML that looks good visually",
+        "HTML that uses meaningful elements to describe content structure and purpose",
+        "HTML that loads faster",
+        "HTML that works only in modern browsers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Semantic HTML uses meaningful elements like <header>, <nav>, <main>, <article>, and <footer> to describe the structure and purpose of content. This improves accessibility for screen readers, helps with SEO, makes code more maintainable, and provides better browser support."
+    },
+    {
+      "id": 2,
+      "question": "Which of these is a proper semantic HTML5 element for the main navigation of a website?",
+      "options": [
+        "<div class='navigation'>",
+        "<nav>",
+        "<menu>",
+        "<ul class='nav'>"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The <nav> element is the semantic HTML5 element specifically designed for navigation sections. It clearly indicates to browsers and assistive technologies that the content contains navigation links, improving accessibility and SEO."
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of the alt attribute in image tags?",
+      "options": [
+        "To make images load faster",
+        "To provide alternative text for screen readers when images can't be displayed",
+        "To add a tooltip when hovering over images",
+        "To improve image quality"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The alt attribute provides alternative text that describes the image content for users who can't see images, including those using screen readers, users with slow internet connections, or when images fail to load. This is crucial for web accessibility."
+    },
+    {
+      "id": 4,
+      "question": "What is responsive web design?",
+      "options": [
+        "A design that responds to user clicks quickly",
+        "A design approach that makes web pages render well on different screen sizes and devices",
+        "A design that uses animations and transitions",
+        "A design that only works on mobile devices"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Responsive web design is an approach that creates web pages that adapt and render well across all screen sizes and devices - from smartphones to tablets to desktops. It uses flexible layouts, fluid images, and CSS media queries to achieve this adaptability."
+    },
+    {
+      "id": 5,
+      "question": "Which CSS property is used to create responsive layouts with flexible containers?",
+      "options": [
+        "float",
+        "position",
+        "flexbox (display: flex)",
+        "table-layout"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Flexbox (display: flex) is a modern CSS layout method that provides flexible and responsive container layouts. It makes it easy to distribute space and align items in a container, even when their size is unknown or dynamic, making it ideal for responsive design."
+    },
+    {
+      "id": 6,
+      "question": "What are CSS media queries used for?",
+      "options": [
+        "To add animations to websites",
+        "To apply different CSS styles based on device characteristics like screen width",
+        "To load images faster",
+        "To create interactive elements"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CSS media queries allow you to apply different styles based on device characteristics such as screen width, height, or orientation. They are fundamental to responsive design, enabling websites to adapt their layout and appearance for different devices."
+    },
+    {
+      "id": 7,
+      "question": "Which meta tag is essential for responsive design?",
+      "options": [
+        "<meta charset='utf-8'>",
+        "<meta name='viewport' content='width=device-width, initial-scale=1'>",
+        "<meta name='description' content='...'>",
+        "<meta name='author' content='...'>"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The viewport meta tag tells the browser how to control the page's dimensions and scaling. 'width=device-width' sets the page width to the device's screen width, and 'initial-scale=1' sets the initial zoom level. Without this tag, responsive design won't work properly on mobile devices."
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between <div> and <section> elements?",
+      "options": [
+        "There's no difference - they're interchangeable",
+        "<div> is semantic, <section> is not",
+        "<div> has no semantic meaning, <section> represents a thematic grouping of content",
+        "<div> is for styling, <section> is for JavaScript"
+      ],
+      "correctAnswer": 2,
+      "explanation": "<div> is a generic container with no semantic meaning, used primarily for styling and layout. <section> is a semantic element that represents a thematic grouping of content, typically with a heading. Using semantic elements like <section> improves accessibility and SEO."
+    },
+    {
+      "id": 9,
+      "question": "What is the mobile-first approach in responsive design?",
+      "options": [
+        "Designing only for mobile devices",
+        "Starting with mobile design and progressively enhancing for larger screens",
+        "Making mobile versions after desktop versions",
+        "Using mobile-specific technologies"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mobile-first is a design strategy where you start by designing for the smallest screen first, then progressively enhance the design for larger screens using min-width media queries. This approach ensures better performance on mobile devices and creates a more inclusive design process."
+    },
+    {
+      "id": 10,
+      "question": "Which CSS units are best for responsive typography?",
+      "options": [
+        "Pixels (px) only",
+        "Relative units like em and rem",
+        "Points (pt)",
+        "Inches (in)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Relative units like em and rem are better for responsive typography because they scale relative to font sizes. 'rem' scales relative to the root element's font size, while 'em' scales relative to the parent element's font size. This makes text more flexible across different devices and user preferences."
+    },
+    {
+      "id": 11,
+      "question": "What is the correct way to make images responsive?",
+      "options": [
+        "Set a fixed width and height",
+        "Use max-width: 100% and height: auto",
+        "Use width: 100vw",
+        "Images are automatically responsive"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Setting max-width: 100% and height: auto makes images responsive by allowing them to scale down on smaller screens while never exceeding their container's width. The height: auto maintains the image's aspect ratio as it scales."
+    },
+    {
+      "id": 12,
+      "question": "What is the purpose of the <main> element in HTML5?",
+      "options": [
+        "To define the main stylesheet",
+        "To contain the dominant content of the document body",
+        "To create the main navigation menu",
+        "To define the main JavaScript functions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The <main> element represents the dominant content of the document body. It helps assistive technologies identify and navigate to the primary content, improving accessibility. There should be only one visible <main> element per page."
+    },
+    {
+      "id": 13,
+      "question": "Which attribute should you use to properly label form inputs for accessibility?",
+      "options": [
+        "title",
+        "placeholder",
+        "label with 'for' attribute or aria-labelledby",
+        "name"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The <label> element with a 'for' attribute that matches the input's 'id', or the 'aria-labelledby' attribute, properly associates labels with form controls. This is essential for accessibility, as screen readers use these associations to help users understand what each input field is for."
+    },
+    {
+      "id": 14,
+      "question": "What are common responsive breakpoints for different devices?",
+      "options": [
+        "320px, 768px, 1024px, 1200px",
+        "100px, 500px, 1000px",
+        "Only 768px is needed",
+        "Breakpoints are not necessary"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Common responsive breakpoints are approximately: 320px (small mobile), 768px (tablet), 1024px (desktop), and 1200px+ (large desktop). However, modern responsive design focuses more on content-driven breakpoints - where your content breaks - rather than specific device sizes."
+    },
+    {
+      "id": 15,
+      "question": "What is the difference between <article> and <section> elements?",
+      "options": [
+        "They're identical and interchangeable",
+        "<article> is for standalone content, <section> is for thematic groupings",
+        "<article> is for text only, <section> is for images",
+        "<article> is deprecated, use <section> instead"
+      ],
+      "correctAnswer": 1,
+      "explanation": "<article> represents standalone, reusable content that makes sense on its own (like blog posts, news articles, or comments). <section> represents a thematic grouping of content within a document. An <article> can contain <section> elements and vice versa."
+    },
+    {
+      "id": 16,
+      "question": "Which CSS property is used to create multi-column layouts efficiently?",
+      "options": [
+        "float",
+        "position: absolute",
+        "display: grid",
+        "table-layout"
+      ],
+      "correctAnswer": 2,
+      "explanation": "CSS Grid (display: grid) is the most efficient modern method for creating complex multi-column layouts. It provides precise control over both rows and columns, making it ideal for responsive layouts. Flexbox is better for one-dimensional layouts, while Grid excels at two-dimensional layouts."
+    },
+    {
+      "id": 17,
+      "question": "What is the purpose of the <figure> and <figcaption> elements?",
+      "options": [
+        "To create mathematical calculations",
+        "To group images with their captions semantically",
+        "To add decorative elements to pages",
+        "To create figure drawings with CSS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "<figure> represents self-contained content like images, diagrams, or code snippets, while <figcaption> provides a caption for the figure. This semantic relationship helps screen readers and other assistive technologies understand the connection between the content and its caption."
+    },
+    {
+      "id": 18,
+      "question": "Which approach improves website loading performance?",
+      "options": [
+        "Using large, high-resolution images everywhere",
+        "Optimizing images, minifying CSS/JS, and using efficient file formats",
+        "Adding more animations and effects",
+        "Using only inline styles"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Performance optimization includes: compressing and properly sizing images, using modern formats like WebP, minifying CSS and JavaScript files, reducing HTTP requests, enabling browser caching, and using CDNs. These practices significantly improve loading speed and user experience."
+    },
+    {
+      "id": 19,
+      "question": "What is the correct semantic structure for a basic webpage?",
+      "options": [
+        "<div><div><div></div></div></div>",
+        "<header><nav></nav><main></main><footer></footer></header>",
+        "<html><head></head><body><header><nav></nav><main></main><footer></footer></body></html>",
+        "<page><title></title><content></content></page>"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The proper semantic structure includes the <html> document root, <head> for metadata, and <body> containing semantic elements like <header> for introductory content, <nav> for navigation, <main> for primary content, and <footer> for concluding content. This structure improves accessibility and SEO."
+    },
+    {
+      "id": 20,
+      "question": "Which CSS technique helps ensure text remains readable on all devices?",
+      "options": [
+        "Using very small font sizes to fit more text",
+        "Setting appropriate font sizes, line height, and contrast ratios",
+        "Using only decorative fonts",
+        "Making all text the same size"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Readable typography requires: minimum font sizes (16px for body text), adequate line height (1.4-1.6), sufficient contrast ratios (at least 4.5:1 for normal text), and responsive font sizing using relative units. These practices ensure accessibility across all devices and user needs."
+    },
+    {
+      "id": 21,
+      "question": "What is the purpose of CSS Flexbox's flex-wrap property?",
+      "options": [
+        "To add animations to flex items",
+        "To control whether flex items wrap to new lines when space runs out",
+        "To change the color of flex containers",
+        "To set the maximum width of flex items"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The flex-wrap property controls whether flex items are forced onto a single line or can wrap to multiple lines. Values include 'nowrap' (default - items stay on one line), 'wrap' (items wrap to new lines as needed), and 'wrap-reverse' (items wrap in reverse order). This is crucial for responsive layouts."
+    },
+    {
+      "id": 22,
+      "question": "Which practice improves website accessibility for keyboard users?",
+      "options": [
+        "Removing all interactive elements",
+        "Ensuring proper tab order and visible focus indicators",
+        "Using only mouse-based interactions",
+        "Hiding all navigation elements"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Keyboard accessibility requires: logical tab order through interactive elements, visible focus indicators (like outlines or highlighting), ensuring all functionality is accessible via keyboard, and proper use of semantic HTML elements. This helps users who cannot use a mouse to navigate effectively."
+    }
+  ]
+}

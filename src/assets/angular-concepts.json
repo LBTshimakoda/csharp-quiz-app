@@ -1,0 +1,368 @@
+﻿{
+  "title": "Angular Deep Dive Quiz",
+  "description": "Master Angular components, services, routing, forms, and modern Angular patterns including standalone components, signals, and control flow",
+  "estimatedTime": "25-30 minutes",
+  "totalQuestions": 30,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are standalone components in Angular and why are they preferred over traditional NgModule-based components?",
+      "options": [
+        "Components that can only be used once per application",
+        "Components that don't require NgModules for bootstrapping and can be imported directly",
+        "Components that run independently of the Angular framework",
+        "Components that don't use dependency injection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Standalone components are a modern Angular feature that eliminates the need for NgModules. They can be bootstrapped directly and imported where needed, reducing boilerplate code, improving tree-shaking, and simplifying the application architecture. They're the default in Angular 19+ and represent the future direction of Angular development."
+    },
+    {
+      "id": 2,
+      "question": "What are Angular Signals and how do they differ from RxJS Observables?",
+      "options": [
+        "Signals are HTTP interceptors, Observables handle async data streams",
+        "Signals are reactive primitives for fine-grained change detection, Observables handle complex async operations",
+        "Signals are for component communication, Observables are for HTTP requests only",
+        "There's no difference - they're interchangeable"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Signals are reactive primitives introduced for fine-grained reactivity and optimized change detection. They notify consumers when values change and enable Angular to update only affected DOM parts. Observables handle complex async operations, cancellation, and operators. Signals are synchronous and simpler for state management, while Observables excel at async data streams."
+    },
+    {
+      "id": 3,
+      "question": "What is the new Angular control flow syntax and what advantages does it provide?",
+      "options": [
+        "@if, @for, @switch replace *ngIf, *ngFor, *ngSwitch with better performance and type checking",
+        "A new way to define component lifecycles",
+        "Syntax for controlling HTTP request flow",
+        "New decorators for dependency injection"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Angular's new control flow syntax (@if, @for, @switch, @defer) replaces structural directives with built-in template syntax. Benefits include: better performance through optimized change detection, improved type checking and narrowing, more intuitive syntax resembling JavaScript, and reduced bundle size by being part of the compiler rather than separate directives."
+    },
+    {
+      "id": 4,
+      "question": "What is the @defer block and when should you use it?",
+      "options": [
+        "A block that delays component initialization by a fixed time",
+        "A lazy-loading mechanism for deferring parts of templates until needed, improving initial load performance",
+        "A way to defer HTTP requests until user interaction",
+        "A debugging tool for development environments"
+      ],
+      "correctAnswer": 1,
+      "explanation": "@defer blocks enable lazy loading of template sections and their dependencies until specific triggers are met (viewport, interaction, idle, etc.). This significantly improves initial bundle size and Core Web Vitals by deferring non-critical content. It's ideal for heavy components, charts, or features that aren't immediately visible."
+    },
+    {
+      "id": 5,
+      "question": "How do you create a writable signal and update its value?",
+      "options": [
+        "const count = signal(0); count.next(5);",
+        "const count = signal(0); count.set(5); or count.update(c => c + 1);",
+        "const count = new Signal(0); count.emit(5);",
+        "const count = signal(0); count.value = 5;"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Writable signals are created with signal(initialValue). You update them using .set(newValue) for direct assignment or .update(updateFn) for transformations. Reading is done by calling the signal as a function: count(). This API is designed to be simple and enable Angular's fine-grained reactivity system."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between CanActivate and CanMatch route guards?",
+      "options": [
+        "CanActivate checks authentication, CanMatch checks authorization",
+        "CanActivate blocks navigation if false, CanMatch tries alternative routes if false",
+        "CanActivate is for parent routes, CanMatch is for child routes",
+        "They're identical and interchangeable"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CanActivate determines if a route can be activated - returning false blocks navigation entirely. CanMatch determines if a route can be matched during path evaluation - returning false causes Angular to try other matching routes. CanMatch is useful for feature flags, A/B testing, or conditional route loading where you want fallback behavior."
+    },
+    {
+      "id": 7,
+      "question": "What are the new signal-based inputs in Angular and how do they work?",
+      "options": [
+        "input(), input.required() provide reactive inputs with automatic change detection optimization",
+        "A new way to validate form inputs",
+        "Inputs that only work with HTTP requests",
+        "Deprecated feature replaced by @Input decorator"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Signal-based inputs using input() and input.required() create reactive inputs that integrate with Angular's signal system. They provide automatic change detection optimization, better type safety, and can be used in computed signals and effects. This is part of Angular's move toward signal-based reactivity."
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of the track expression in @for loops?",
+      "options": [
+        "To count the number of iterations",
+        "To optimize DOM operations by maintaining relationships between data and DOM nodes",
+        "To debug template performance",
+        "To sort the array items"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The track expression helps Angular maintain relationships between data items and DOM nodes during list updates. This enables minimal DOM operations when data changes - Angular can identify which items are added, removed, or moved rather than recreating the entire list. Use unique identifiers like 'track item.id' for best performance."
+    },
+    {
+      "id": 9,
+      "question": "What are computed signals and when should you use them?",
+      "options": [
+        "Signals that perform mathematical calculations",
+        "Read-only signals derived from other signals, automatically updated when dependencies change",
+        "Signals used for HTTP requests",
+        "Signals that work with async operations"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Computed signals are read-only signals that derive their value from other signals using computed(() => ...). They automatically update when their dependencies change and are memoized for performance. Use them for derived state, complex calculations, or transformations that depend on other reactive values."
+    },
+    {
+      "id": 10,
+      "question": "What is Angular's new input() transform function used for?",
+      "options": [
+        "To validate input values before assignment",
+        "To convert string inputs to other types (e.g., string to boolean/number)",
+        "To encrypt input data for security",
+        "To format input display values"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The transform function in input() automatically converts input values to desired types. For example, input(false, { transform: booleanAttribute }) converts string 'true'/'false' to boolean values. This eliminates manual type conversion boilerplate and ensures type safety for component inputs."
+    },
+    {
+      "id": 11,
+      "question": "What is the difference between effects and computed signals?",
+      "options": [
+        "Effects are for side effects and don't return values; computed signals derive new values from other signals",
+        "Effects are synchronous; computed signals are asynchronous",
+        "Effects are deprecated; computed signals are the new approach",
+        "There's no difference - they're interchangeable"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Effects are for side effects (DOM manipulation, logging, API calls) and don't return values. They run whenever their signal dependencies change. Computed signals derive new values from other signals and are memoized. Use effects for actions/side effects, computed signals for derived state."
+    },
+    {
+      "id": 12,
+      "question": "What is the @let syntax in Angular templates?",
+      "options": [
+        "A way to declare variables in TypeScript components",
+        "Template syntax for creating reusable variables within templates",
+        "A directive for lazy loading components",
+        "Syntax for defining custom pipes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "@let allows defining variables directly in templates that can be reused throughout that template. For example: '@let userName = user.name; @let greeting = \"Hello, \" + userName;'. This reduces repetitive expressions, improves readability, and can cache expensive calculations or async results."
+    },
+    {
+      "id": 13,
+      "question": "How does Angular's new zoneless change detection work with signals?",
+      "options": [
+        "It completely removes zones and uses only manual change detection",
+        "It uses signals to trigger precise, targeted updates without zone.js overhead",
+        "It's only available for standalone components",
+        "It requires manual implementation in each component"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Zoneless change detection leverages signals to know exactly when and where changes occur, enabling fine-grained updates without zone.js. When signals change, Angular can update only the specific DOM nodes that depend on those signals, rather than checking entire component trees. This significantly improves performance."
+    },
+    {
+      "id": 14,
+      "question": "What are the benefits of using the new functional route guards over class-based guards?",
+      "options": [
+        "They support more guard types than class-based guards",
+        "They're tree-shakable, simpler to test, and integrate better with modern Angular patterns",
+        "They run faster than class-based guards",
+        "They provide better TypeScript support"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Functional guards (CanActivateFn, CanMatchFn, etc.) are tree-shakable, reducing bundle size. They're simpler to write and test, work well with the inject() function, and align with Angular's move toward functional programming patterns. They also provide better integration with modern Angular features."
+    },
+    {
+      "id": 15,
+      "question": "What is the difference between viewChild() signal query and @ViewChild decorator?",
+      "options": [
+        "viewChild() is reactive and integrates with signals; @ViewChild is static",
+        "viewChild() is for templates; @ViewChild is for components",
+        "viewChild() is asynchronous; @ViewChild is synchronous",
+        "There's no functional difference"
+      ],
+      "correctAnswer": 0,
+      "explanation": "viewChild() returns a signal that updates automatically when the queried element changes, integrating seamlessly with computed signals and effects. @ViewChild requires manual lifecycle management and doesn't integrate with the reactive system. Signal queries enable more reactive and declarative code patterns."
+    },
+    {
+      "id": 16,
+      "question": "What is the purpose of Angular's new linkedSignal()?",
+      "options": [
+        "To link multiple HTTP requests together",
+        "To create a signal that derives from another signal but can also be set independently",
+        "To connect Angular components with external libraries",
+        "To synchronize signals across different components"
+      ],
+      "correctAnswer": 1,
+      "explanation": "linkedSignal() creates a signal that can both derive its value from another signal and be set independently. It's useful for scenarios like form controls that reflect a model value but can be temporarily modified, or cached values that can be refreshed. It bridges reactive and imperative programming patterns."
+    },
+    {
+      "id": 17,
+      "question": "How do you implement lazy loading with modern Angular routing?",
+      "options": [
+        "Use loadChildren with dynamic imports: loadChildren: () => import('./feature/routes')",
+        "Use lazy: true in route configuration",
+        "Use @defer blocks in components",
+        "Import modules in providers array"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Modern lazy loading uses loadChildren with dynamic imports to load route files or components. For standalone components, you can directly import the component: loadComponent: () => import('./component').then(c => c.Component). This creates separate bundles that load on demand, improving initial load performance."
+    },
+    {
+      "id": 18,
+      "question": "What is the new control flow @switch syntax and how does it differ from ngSwitch?",
+      "options": [
+        "@switch provides better performance and type checking without requiring separate directive imports",
+        "@switch only works with string values",
+        "@switch requires additional configuration",
+        "@switch is only for standalone components"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@switch/@case/@default provides better performance than *ngSwitch by being built into the compiler. It offers improved type checking, doesn't require importing directives, and has cleaner syntax. Unlike JavaScript switch, it doesn't have fallthrough, so no break statements are needed."
+    },
+    {
+      "id": 19,
+      "question": "What are the key benefits of Angular's new @if control flow over *ngIf?",
+      "options": [
+        "Better performance, improved type narrowing, and ability to store expression results in variables",
+        "@if only works with boolean values",
+        "@if requires less memory",
+        "@if supports more complex expressions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@if provides better performance through compiler optimizations, improved type narrowing (TypeScript knows the type within the block), and can store expressions in variables with @if (expr; as variable). It also has cleaner syntax and better error messages than *ngIf."
+    },
+    {
+      "id": 20,
+      "question": "How do you create and use a resolver in modern Angular routing?",
+      "options": [
+        "Implement ResolveFn function and use inject() for dependencies",
+        "Extend Resolver class with resolve method",
+        "Use @Injectable with Resolve interface",
+        "Create resolver service with @Component decorator"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Modern resolvers use ResolveFn functional approach. Create a function that returns the resolved data and use inject() for dependencies: const dataResolver: ResolveFn<Data> = () => inject(DataService).getData(). Configure it in routes with resolve: { data: dataResolver }. This is more tree-shakable than class-based resolvers."
+    },
+    {
+      "id": 21,
+      "question": "What is Angular's resource() function and when should you use it?",
+      "options": [
+        "A way to manage component resources like images and styles",
+        "An experimental API for handling async data as signals with loading, error, and success states",
+        "A function for lazy loading components",
+        "A utility for memory management"
+      ],
+      "correctAnswer": 1,
+      "explanation": "resource() is an experimental signal-based primitive for async operations. It provides a signal that contains loading, error, and value states, similar to React Query. It's designed to replace patterns where you manually manage loading states with observables, providing a more integrated signal-based async data flow."
+    },
+    {
+      "id": 22,
+      "question": "What is the difference between inject() and constructor-based dependency injection?",
+      "options": [
+        "inject() can only be used in services, constructor injection works everywhere",
+        "inject() works in injection context (constructors, factory functions), is more flexible and tree-shakable",
+        "inject() is synchronous, constructor injection is asynchronous",
+        "inject() is deprecated in favor of constructor injection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "inject() function provides more flexibility - it can be used in functions, factory providers, and modern Angular patterns like functional guards and resolvers. It's tree-shakable and works well with functional programming. It must be called within injection context, but enables cleaner functional code patterns."
+    },
+    {
+      "id": 23,
+      "question": "How do you implement route data passing with the new ROUTER_OUTLET_DATA token?",
+      "options": [
+        "Use routerOutletData input on RouterOutlet and inject ROUTER_OUTLET_DATA in child components",
+        "Pass data through URL parameters only",
+        "Use shared services for all data passing",
+        "Data can only be passed through route state"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ROUTER_OUTLET_DATA allows parent components to pass data directly to routed child components via routerOutletData input on RouterOutlet. Child components inject ROUTER_OUTLET_DATA to receive a signal with the data. This enables dynamic parent-to-child communication in routed scenarios."
+    },
+    {
+      "id": 24,
+      "question": "What are the trigger options available for @defer blocks?",
+      "options": [
+        "Only viewport and interaction triggers are supported",
+        "idle, viewport, interaction, hover, timer, and custom conditions with 'when'",
+        "Only timer and custom conditions are available",
+        "All triggers require manual JavaScript implementation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "@defer supports multiple triggers: idle (default), viewport (when element enters viewport), interaction (click, keydown), hover, timer(ms), and when(condition) for custom logic. Multiple triggers can be combined with OR logic using semicolons. Each trigger optimizes for different loading strategies."
+    },
+    {
+      "id": 25,
+      "question": "What is the purpose of @placeholder, @loading, and @error blocks in @defer?",
+      "options": [
+        "They're required blocks for all @defer implementations",
+        "They provide fallback content for different @defer states during the loading lifecycle",
+        "They're only used for debugging purposes",
+        "They handle HTTP error responses"
+      ],
+      "correctAnswer": 1,
+      "explanation": "@placeholder shows before defer triggers, @loading shows during loading, and @error shows if loading fails. They provide smooth UX during the async loading process. These blocks are optional but recommended for good user experience. Their dependencies are eagerly loaded unlike the main @defer content."
+    },
+    {
+      "id": 26,
+      "question": "How do you test @defer blocks in Angular unit tests?",
+      "options": [
+        "@defer blocks cannot be tested in unit tests",
+        "Use DeferBlockBehavior.Manual and getDeferBlocks() to control defer states manually",
+        "All @defer blocks automatically render in tests",
+        "Use async/await with setTimeout"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Configure TestBed with DeferBlockBehavior.Manual to control @defer blocks in tests. Use fixture.getDeferBlocks() to get defer block fixtures, then call render(DeferBlockState.Loading) or render(DeferBlockState.Complete) to test different states. This allows testing all defer states programmatically."
+    },
+    {
+      "id": 27,
+      "question": "What is the strictStandalone compiler flag and why is it useful?",
+      "options": [
+        "It makes all components standalone by default",
+        "It enforces that components, directives, and pipes must be standalone, preventing NgModule usage",
+        "It only works with TypeScript strict mode",
+        "It's a runtime flag for production builds"
+      ],
+      "correctAnswer": 1,
+      "explanation": "strictStandalone compiler flag prevents the creation of non-standalone components, directives, and pipes, enforcing the modern standalone approach. This helps teams migrate to standalone architecture and prevents mixing of old and new patterns, ensuring consistency and better tree-shaking."
+    },
+    {
+      "id": 28,
+      "question": "What are the requirements for dependencies to be deferrable in @defer blocks?",
+      "options": [
+        "They must be imported from npm packages",
+        "They must be standalone and not referenced outside the @defer block in the same file",
+        "They must implement a specific interface",
+        "They must be lazy-loaded modules"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For dependencies to be truly deferred, they must be: 1) standalone components/directives/pipes, and 2) not referenced outside the @defer block in the same file or in ViewChild queries. Non-standalone dependencies will still be eagerly loaded even inside @defer blocks."
+    },
+    {
+      "id": 29,
+      "question": "How do effects work in Angular's signal system and what are their use cases?",
+      "options": [
+        "Effects are only for HTTP requests and async operations",
+        "Effects run when signal dependencies change, ideal for side effects like DOM manipulation, logging, or API calls",
+        "Effects replace all lifecycle hooks in Angular",
+        "Effects are synchronous replacements for observables"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Effects run automatically when their signal dependencies change. They're perfect for side effects: DOM manipulation, analytics tracking, localStorage updates, or triggering API calls based on state changes. Effects track dependencies dynamically and must be created in injection context (constructor, factory functions)."
+    },
+    {
+      "id": 30,
+      "question": "What is the relationship between Angular signals and zoneless change detection?",
+      "options": [
+        "Signals require zone.js to function properly",
+        "Signals enable fine-grained reactivity that makes zone.js optional, leading to better performance",
+        "Signals and zones are completely unrelated concepts",
+        "Zoneless mode disables all signals functionality"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Signals enable zoneless change detection by providing precise knowledge of when and what changes occur. Instead of zone.js detecting all async operations and checking entire component trees, signals allow Angular to update only the specific DOM nodes that depend on changed signals, resulting in much better performance and smaller bundle sizes."
+    }
+  ]
+}

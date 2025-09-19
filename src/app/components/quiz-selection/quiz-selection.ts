@@ -290,14 +290,14 @@ export class QuizSelectionComponent {
 
   quizCategories: QuizCategory[] = [
     {
-      id: 'csharp-basics',
-      title: 'C# Fundamentals',
-      description: 'Test your knowledge of C# basics, syntax, OOP concepts, and core language features.',
-      difficulty: 'Intermediate',
-      questionCount: 20,
-      estimatedTime: '15-20 min',
+      id: 'csharp-advanced',
+      title: 'C# Advanced Mastery',
+      description: 'Master advanced C# concepts including LINQ, generics, delegates, events, async programming, design patterns, and .NET internals.',
+      difficulty: 'Advanced',
+      questionCount: 40,
+      estimatedTime: '35-45 min',
       color: 'blue',
-      dataFile: 'csharp-basics.json',
+      dataFile: 'csharp-advanced.json',
       disabled: false, 
       icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polyline points="16,18 22,12 16,6"></polyline>
@@ -331,7 +331,7 @@ export class QuizSelectionComponent {
       estimatedTime: '25-30 min',
       color: 'green',
       dataFile: 'angular-concepts.json',
-      disabled: true,
+      disabled: false,
       icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"></polygon>
         <polygon points="12,7 19,10 19,14 12,17 5,14 5,10"></polygon>
@@ -347,7 +347,7 @@ export class QuizSelectionComponent {
       estimatedTime: '16-22 min',
       color: 'purple',
       dataFile: 'web-development.json',
-      disabled: true,
+      disabled: false,
       icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="10"></circle>
         <line x1="2" y1="12" x2="22" y2="12"></line>

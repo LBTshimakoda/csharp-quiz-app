@@ -19,7 +19,7 @@ import { QuizService } from '../../services/quiz.service';
             <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
             <path d="M4 22h16"></path>
             <path d="M10 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
-            <rect x="7" y="6" width="10" height="14" rx="1"></rect>
+            <rect x="7" y="6" width="14" height="14" rx="1"></rect>
           </svg>
         </div>
         <h1>Quiz Results</h1>
@@ -42,6 +42,8 @@ import { QuizService } from '../../services/quiz.service';
       <!-- Answer Review -->
       <div class="answer-review">
         <h3>Review Your Answers:</h3>
+        <p class="review-subtitle">💡 Click the info button next to each question to see detailed explanations</p>
+        
         <div class="review-list">
           @for (question of quizData.questions; track question.id) {
             <div class="review-item">
@@ -75,12 +77,28 @@ import { QuizService } from '../../services/quiz.service';
                   }
                 </div>
                 <div class="question-content">
-                  <p class="question-text">
-                    <strong>{{ $index + 1 }}. {{ question.question }}</strong>
-                  </p>
+                  <div class="question-header">
+                    <p class="question-text">
+                      <strong>{{ $index + 1 }}. {{ question.question }}</strong>
+                    </p>
+                    @if (question.explanation) {
+                      <button 
+                        class="info-btn"
+                        (click)="showExplanation(question)"
+                        title="Show explanation">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M9,9h0a3,3,0,0,1,6,0c0,2-3,3-3,3"></path>
+                          <path d="M12,17h0"></path>
+                        </svg>
+                      </button>
+                    }
+                  </div>
                   <p class="user-answer">
                     <span class="answer-label">Your answer:</span>
-                    <span class="answer-text">{{ getUserAnswer(question.id) }}</span>
+                    <span class="answer-text" [ngClass]="{ 'correct-user-answer': isAnswerCorrect(question.id) }">
+                      {{ getUserAnswer(question.id) }}
+                    </span>
                   </p>
                   @if (!isAnswerCorrect(question.id)) {
                     <p class="correct-answer">
@@ -106,6 +124,40 @@ import { QuizService } from '../../services/quiz.service';
           Take Quiz Again
         </button>
       </div>
+
+      <!-- Explanation Modal -->
+      @if (showModal && selectedQuestion) {
+        <div class="modal-overlay" (click)="closeModal()">
+          <div class="modal-content" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+              <h3>💡 Explanation</h3>
+              <button class="close-btn" (click)="closeModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="modal-question">
+                <strong>{{ selectedQuestion.question }}</strong>
+              </p>
+              <p class="modal-correct-answer">
+                <span class="answer-label">Correct Answer:</span>
+                <span class="correct-answer-highlight">{{ selectedQuestion.options[selectedQuestion.correctAnswer] }}</span>
+              </p>
+              <div class="modal-explanation">
+                <p>{{ selectedQuestion.explanation }}</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" (click)="closeModal()">
+                Got it!
+              </button>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   `,
   styles: [`
@@ -202,7 +254,14 @@ import { QuizService } from '../../services/quiz.service';
       font-size: 1.5rem;
       font-weight: 600;
       color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .review-subtitle {
+      color: #6b7280;
+      font-size: 14px;
       margin-bottom: 24px;
+      font-style: italic;
     }
 
     .review-list {
@@ -245,15 +304,43 @@ import { QuizService } from '../../services/quiz.service';
       flex: 1;
     }
 
+    .question-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
     .question-text {
       font-weight: 600;
       color: #1f2937;
-      margin-bottom: 12px;
       line-height: 1.4;
+      flex: 1;
     }
 
     .question-text strong {
       font-weight: inherit;
+    }
+
+    .info-btn {
+      flex-shrink: 0;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .info-btn:hover {
+      background: #2563eb;
+      transform: scale(1.1);
     }
 
     .user-answer,
@@ -277,6 +364,11 @@ import { QuizService } from '../../services/quiz.service';
     }
 
     .answer-text.correct {
+      color: #059669;
+      font-weight: 500;
+    }
+
+    .correct-user-answer {
       color: #059669;
       font-weight: 500;
     }
@@ -312,6 +404,107 @@ import { QuizService } from '../../services/quiz.service';
     .btn-large {
       padding: 16px 32px;
       font-size: 16px;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 24px 0;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: #6b7280;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .modal-body {
+      padding: 0 24px;
+    }
+
+    .modal-question {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .modal-correct-answer {
+      margin-bottom: 20px;
+      padding: 12px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+    }
+
+    .correct-answer-highlight {
+      color: #059669;
+      font-weight: 600;
+    }
+
+    .modal-explanation {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .modal-explanation p {
+      color: #1e40af;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .modal-footer {
+      padding: 0 24px 24px;
+      text-align: right;
     }
 
     @media (max-width: 768px) {
@@ -367,6 +560,31 @@ import { QuizService } from '../../services/quiz.service';
       .correct-answer {
         font-size: 13px;
       }
+
+      .question-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .info-btn {
+        align-self: flex-end;
+      }
+
+      .modal-overlay {
+        padding: 16px;
+      }
+
+      .modal-content {
+        max-height: 90vh;
+      }
+
+      .modal-header,
+      .modal-body,
+      .modal-footer {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
     }
   `]
 })
@@ -375,6 +593,9 @@ export class ResultsComponent implements OnInit {
   @Output() restartQuiz = new EventEmitter<void>();
 
   quizResult!: QuizResult;
+  showModal = false;
+  selectedQuestion: QuizQuestion | null = null;
+
   private quizService = inject(QuizService);
 
   ngOnInit(): void {
@@ -383,6 +604,20 @@ export class ResultsComponent implements OnInit {
 
   onRestartQuiz(): void {
     this.restartQuiz.emit();
+  }
+
+  showExplanation(question: QuizQuestion): void {
+    this.selectedQuestion = question;
+    this.showModal = true;
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+    this.selectedQuestion = null;
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
   }
 
   getScoreColor(): string {

@@ -1,0 +1,486 @@
+﻿{
+  "title": "C# Advanced Mastery Quiz",
+  "description": "Master advanced C# concepts including LINQ, generics, delegates, events, async programming, design patterns, and .NET internals",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is C#?",
+      "options": [
+        "A type-safe, object-oriented language used to create .Net applications with a component-oriented approach",
+        "A scripting language for web development only",
+        "A low-level systems programming language",
+        "A database query language"
+      ],
+      "correctAnswer": 0,
+      "explanation": "C# is a modern, type-safe, object-oriented programming language developed by Microsoft. It's designed to work with the .NET framework and supports component-oriented programming, making it ideal for building various types of applications including web, desktop, mobile, and cloud-based solutions."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a key feature of C#?",
+      "options": [
+        "Type-safe",
+        "Object-oriented",
+        "Direct memory manipulation like C++",
+        "Component-oriented"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Unlike C++, C# does not allow direct memory manipulation. C# is designed to be memory-safe and uses garbage collection to automatically manage memory. This makes C# safer and easier to use than languages that require manual memory management, but it also means developers cannot directly manipulate memory addresses or pointers."
+    },
+    {
+      "id": 3,
+      "question": "What are classes in C#?",
+      "options": [
+        "Runtime execution environments",
+        "A concept or blueprint to define how data will be structured, stored, and managed within a program",
+        "Memory allocation units",
+        "Network communication protocols"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Classes in C# serve as blueprints or templates that define the structure and behavior of objects. They encapsulate data (fields/properties) and functionality (methods) together. When you create an instance of a class, you get an object that follows the structure and behavior defined by that class."
+    },
+    {
+      "id": 4,
+      "question": "Which access modifier makes members accessible from anywhere in the code?",
+      "options": [
+        "Private",
+        "Protected",
+        "Internal",
+        "Public"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The 'public' access modifier provides the most permissive access level. Public members can be accessed from any other code in the same assembly or another assembly that references it. This includes code in different classes, namespaces, or even different projects."
+    },
+    {
+      "id": 5,
+      "question": "What is boxing in C#?",
+      "options": [
+        "Converting Reference Type to Value Type",
+        "Converting Value Type to Reference Type",
+        "Creating new objects",
+        "Memory allocation process"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Boxing is the process of converting a value type to a reference type. When a value type is boxed, it's wrapped in an object and stored on the heap. For example, when you assign an int to an object variable, the int value gets boxed. This process can have performance implications as it involves heap allocation."
+    },
+    {
+      "id": 6,
+      "question": "How do you declare a nullable integer in C#?",
+      "options": [
+        "int i = null;",
+        "nullable int i = null;",
+        "int? i = null;",
+        "int i = nullable;"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The '?' syntax is a shorthand for declaring nullable value types in C#. 'int?' is equivalent to 'Nullable<int>'. This allows value types to have a null value in addition to their normal range of values, which is useful when working with databases or scenarios where a value might be missing."
+    },
+    {
+      "id": 7,
+      "question": "What are constructors in C#?",
+      "options": [
+        "Methods for destroying objects",
+        "Special functions that share the class name and are called when creating objects",
+        "Variables that store class data",
+        "Operators for mathematical calculations"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Constructors are special methods in C# that have the same name as the class and are automatically called when an instance of the class is created. They're used to initialize the object's state and can accept parameters to customize the initialization process. A class can have multiple constructors with different parameter lists."
+    },
+    {
+      "id": 8,
+      "question": "Which collection type follows Last-In-First-Out (LIFO) structure?",
+      "options": [
+        "ArrayList",
+        "Queue",
+        "HashTable",
+        "Stack"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Stack follows the Last-In-First-Out (LIFO) principle, meaning the last element added is the first one to be removed. Think of it like a stack of plates - you add plates to the top and remove plates from the top. Common operations are Push (add) and Pop (remove)."
+    },
+    {
+      "id": 9,
+      "question": "What is an interface in C#?",
+      "options": [
+        "A concrete class with full implementation",
+        "A contract that defines what methods and properties a class must implement",
+        "A class for database connections",
+        "A class for user interface design"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An interface in C# defines a contract that implementing classes must follow. It contains only method signatures, properties, events, or indexers without any implementation. All members of an interface are implicitly public and abstract. Classes can implement multiple interfaces, providing a way to achieve multiple inheritance of type."
+    },
+    {
+      "id": 10,
+      "question": "What type of data type is a struct in C#?",
+      "options": [
+        "Reference type",
+        "Value type",
+        "Pointer type",
+        "Dynamic type"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Structs in C# are value types, which means they're stored on the stack (or inline in containing types) rather than on the heap. When you assign a struct to another variable, the entire value is copied. This makes structs more efficient for small, simple data structures but less suitable for large, complex objects."
+    },
+    {
+      "id": 11,
+      "question": "What is a generic class in C#?",
+      "options": [
+        "A class that can only work with object types",
+        "A class that can work with any data type specified at compile time",
+        "A class that automatically implements all interfaces",
+        "A class that cannot be inherited"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Generic classes allow you to define a class with type parameters that are specified when the class is instantiated. This provides type safety without sacrificing performance or requiring boxing/unboxing. For example, List<T> can work with List<int>, List<string>, etc., each being strongly typed."
+    },
+    {
+      "id": 12,
+      "question": "What is LINQ in C#?",
+      "options": [
+        "A database management system",
+        "Language Integrated Query - a set of methods for querying data",
+        "A web framework",
+        "A unit testing framework"
+      ],
+      "correctAnswer": 1,
+      "explanation": "LINQ (Language Integrated Query) provides a consistent way to query data from different sources using a SQL-like syntax integrated into C#. It works with collections, XML, databases, and any data source that implements IEnumerable<T>. LINQ makes data querying more readable and maintainable."
+    },
+    {
+      "id": 13,
+      "question": "What is the difference between IEnumerable and IQueryable?",
+      "options": [
+        "No difference",
+        "IEnumerable is for in-memory collections, IQueryable is for remote data sources",
+        "IQueryable is for in-memory collections, IEnumerable is for remote data sources",
+        "Both are identical interfaces"
+      ],
+      "correctAnswer": 1,
+      "explanation": "IEnumerable<T> is best for in-memory collections and executes queries on the client side. IQueryable<T> is designed for remote data sources (like databases) and builds expression trees that can be translated to SQL or other query languages, enabling server-side query execution."
+    },
+    {
+      "id": 14,
+      "question": "What is a delegate in C#?",
+      "options": [
+        "A class that handles database connections",
+        "A type-safe function pointer that can hold references to methods",
+        "A design pattern for object creation",
+        "A method for handling exceptions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Delegates in C# are type-safe function pointers that can hold references to both static and instance methods with compatible signatures. They're the foundation for events and enable functional programming concepts like passing methods as parameters, callback methods, and method chaining."
+    },
+    {
+      "id": 15,
+      "question": "What is the difference between Action and Func delegates?",
+      "options": [
+        "No difference",
+        "Action returns a value, Func doesn't return a value",
+        "Func returns a value, Action doesn't return a value",
+        "Both always return values"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Func<T> delegates return a value (the last generic parameter is the return type), while Action<T> delegates don't return a value (void). For example, Func<int, int, int> takes two ints and returns an int, while Action<int, int> takes two ints and returns nothing."
+    },
+    {
+      "id": 16,
+      "question": "What is an event in C#?",
+      "options": [
+        "A method that runs automatically",
+        "A special kind of delegate that provides notifications",
+        "A type of exception",
+        "A database transaction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Events in C# are special kinds of multicast delegates that provide a notification mechanism. They follow the publisher-subscriber pattern, allowing multiple subscribers to be notified when something happens. Events provide encapsulation - external classes can subscribe/unsubscribe but cannot directly invoke the event or access its invocation list."
+    },
+    {
+      "id": 17,
+      "question": "What is the purpose of the 'yield' keyword in C#?",
+      "options": [
+        "To exit a method immediately",
+        "To create iterators and return elements one at a time",
+        "To handle exceptions",
+        "To create new threads"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'yield' keyword is used to create iterators that return elements one at a time on demand. It enables lazy evaluation - elements are generated only when requested. This is memory-efficient for large datasets and enables creating infinite sequences. The compiler generates a state machine to handle the iteration."
+    },
+    {
+      "id": 18,
+      "question": "What is dependency injection in C#?",
+      "options": [
+        "A way to inject SQL queries into code",
+        "A design pattern where dependencies are provided from external sources rather than created internally",
+        "A method for handling file I/O operations",
+        "A technique for optimizing performance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Dependency Injection is a design pattern where dependencies are provided to a class from external sources rather than the class creating them itself. This promotes loose coupling, makes code more testable, and follows the Dependency Inversion Principle. Modern .NET has built-in DI container support."
+    },
+    {
+      "id": 19,
+      "question": "What is the difference between Task and Thread in C#?",
+      "options": [
+        "No difference",
+        "Task is higher-level abstraction built on top of Thread with better performance and features",
+        "Thread is higher-level abstraction built on top of Task",
+        "Both are identical in functionality"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Task is a higher-level abstraction that represents asynchronous operations. It's built on top of the ThreadPool and provides better performance, composability, and exception handling than raw Thread objects. Tasks can represent both CPU-bound and I/O-bound operations and integrate well with async/await."
+    },
+    {
+      "id": 20,
+      "question": "What is the purpose of ConfigureAwait(false) in C#?",
+      "options": [
+        "To make async methods run faster",
+        "To avoid deadlocks by not capturing the synchronization context",
+        "To handle exceptions in async methods",
+        "To create new threads for async operations"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ConfigureAwait(false) tells the awaiter not to capture the current synchronization context when resuming after the await. This prevents deadlocks in scenarios where you're calling async methods from synchronous contexts and improves performance by avoiding unnecessary context switching, especially in library code."
+    },
+    {
+      "id": 21,
+      "question": "What is a record in C# 9+?",
+      "options": [
+        "A type of database entry",
+        "A reference type designed for immutable data with value-based equality",
+        "A method for logging information",
+        "A design pattern for data storage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Records in C# 9+ are reference types designed primarily for immutable data. They provide value-based equality (comparing contents rather than references), built-in ToString() implementation, and support for non-destructive mutation with 'with' expressions. They're perfect for data transfer objects and value objects."
+    },
+    {
+      "id": 22,
+      "question": "What is pattern matching in C# 8+?",
+      "options": [
+        "A string matching algorithm",
+        "A feature that allows you to test expressions against patterns and extract data",
+        "A design pattern for object creation",
+        "A method for regular expressions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Pattern matching allows you to test expressions against patterns and extract data from them. It includes switch expressions, property patterns, tuple patterns, and positional patterns. This makes code more concise and readable, especially when working with complex data structures or implementing algorithms."
+    },
+    {
+      "id": 23,
+      "question": "What is the Span<T> type in C#?",
+      "options": [
+        "A collection that spans multiple threads",
+        "A type-safe way to represent a contiguous region of memory",
+        "A time measurement utility",
+        "A design pattern for distributed systems"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Span<T> is a ref struct that represents a contiguous region of memory (arrays, strings, stack-allocated memory, or native memory). It provides a unified, high-performance, type-safe way to work with memory without allocations. It's particularly useful for performance-critical code and working with large data sets."
+    },
+    {
+      "id": 24,
+      "question": "What is the difference between ref, out, and in parameter modifiers?",
+      "options": [
+        "No difference",
+        "ref: pass by reference (must initialize before), out: output parameter (must assign in method), in: readonly reference",
+        "All three work identically",
+        "They only affect performance, not behavior"
+      ],
+      "correctAnswer": 1,
+      "explanation": "'ref' passes by reference and requires initialization before calling; 'out' is for output parameters that must be assigned in the method before returning; 'in' passes by readonly reference for performance (avoids copying) while preventing modification. Each serves different scenarios for parameter passing."
+    },
+    {
+      "id": 25,
+      "question": "What is a static constructor in C#?",
+      "options": [
+        "A constructor that can be called multiple times",
+        "A constructor that initializes static members and is called once before first use",
+        "A constructor that creates static objects",
+        "A constructor that doesn't take parameters"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A static constructor is called automatically by the .NET runtime before the class is first used (before accessing static members or creating instances). It's used to initialize static data members and is called only once. It cannot have access modifiers, parameters, or be called directly."
+    },
+    {
+      "id": 26,
+      "question": "What is the difference between String and StringBuilder?",
+      "options": [
+        "No difference",
+        "String is immutable, StringBuilder is mutable and more efficient for multiple string operations",
+        "StringBuilder is immutable, String is mutable",
+        "Both are always equally efficient"
+      ],
+      "correctAnswer": 1,
+      "explanation": "String objects are immutable - any operation that appears to modify a string creates a new string object. StringBuilder is mutable and maintains an internal buffer, making it much more efficient when performing multiple string operations. Use StringBuilder when concatenating many strings or performing multiple modifications."
+    },
+    {
+      "id": 27,
+      "question": "What is the Garbage Collector (GC) in C#?",
+      "options": [
+        "A code cleanup tool",
+        "An automatic memory management system that frees unused objects",
+        "A performance optimization compiler",
+        "A debugging utility"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Garbage Collector automatically manages memory by tracking object references and freeing memory used by objects that are no longer reachable. It runs in generations (0, 1, 2) and uses different strategies for different object lifetimes. This prevents memory leaks and reduces the burden of manual memory management."
+    },
+    {
+      "id": 28,
+      "question": "What is the difference between IDisposable and Finalizer?",
+      "options": [
+        "No difference",
+        "IDisposable provides deterministic cleanup, Finalizer provides non-deterministic cleanup",
+        "Finalizer is always better for performance",
+        "Both are called at the same time"
+      ],
+      "correctAnswer": 1,
+      "explanation": "IDisposable.Dispose() provides deterministic resource cleanup that you control (often used with 'using' statements). Finalizers (~ClassName) are called by the GC non-deterministically during garbage collection. The Dispose pattern often implements both, with Dispose suppressing finalization for performance."
+    },
+    {
+      "id": 29,
+      "question": "What is covariance and contravariance in C# generics?",
+      "options": [
+        "Two types of inheritance patterns",
+        "Covariance allows more derived types as output, contravariance allows more derived types as input",
+        "Methods for type conversion",
+        "Performance optimization techniques"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Covariance (out T) allows you to use a more derived type than originally specified (e.g., IEnumerable<string> can be assigned to IEnumerable<object>). Contravariance (in T) allows less derived types (e.g., Action<object> can be assigned to Action<string>). This provides type safety while allowing more flexible generic type usage."
+    },
+    {
+      "id": 30,
+      "question": "What is reflection in C#?",
+      "options": [
+        "A mirror-like design pattern",
+        "The ability to examine and manipulate types, members, and objects at runtime",
+        "A code commenting technique",
+        "A debugging methodology"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reflection allows you to inspect metadata about types, create instances dynamically, invoke methods, and access fields/properties at runtime. It's powerful for frameworks, serialization, and dynamic code scenarios, but comes with performance costs and can bypass compile-time type safety."
+    },
+    {
+      "id": 31,
+      "question": "What is an extension method in C#?",
+      "options": [
+        "A method that extends the compiler",
+        "A static method that can be called as if it were an instance method of another type",
+        "A virtual method that can be overridden",
+        "A method that handles file extensions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Extension methods allow you to add new methods to existing types without modifying their source code. They're static methods in static classes, where the first parameter uses the 'this' modifier. They appear as instance methods in IntelliSense and enable fluent APIs and LINQ functionality."
+    },
+    {
+      "id": 32,
+      "question": "What is the difference between abstract class and interface in C#?",
+      "options": [
+        "No difference",
+        "Abstract class can have implementation and fields, interface traditionally only declares contracts (C# 8+ allows default implementations)",
+        "Interface can have constructors, abstract class cannot",
+        "Both are identical in functionality"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Abstract classes can contain implementation, fields, constructors, and access modifiers. A class can inherit from only one abstract class. Interfaces traditionally only declared contracts (C# 8+ allows default implementations), and a class can implement multiple interfaces. Choose based on 'is-a' vs 'can-do' relationships."
+    },
+    {
+      "id": 33,
+      "question": "What is async/await in C#?",
+      "options": [
+        "A threading mechanism",
+        "Syntactic sugar for working with asynchronous operations and Tasks",
+        "A design pattern for web applications",
+        "A database access method"
+      ],
+      "correctAnswer": 1,
+      "explanation": "async/await provides a clean syntax for asynchronous programming. 'async' methods return Task or Task<T>, and 'await' unwraps the result while yielding control back to the caller. This allows writing asynchronous code that looks synchronous, avoiding callback hell and making error handling easier."
+    },
+    {
+      "id": 34,
+      "question": "What is the lock statement in C#?",
+      "options": [
+        "A way to lock files from being accessed",
+        "A synchronization mechanism that ensures only one thread can access a code block at a time",
+        "A method for securing databases",
+        "A design pattern for object creation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The lock statement provides mutual exclusion by ensuring only one thread can enter the critical section at a time. It's syntactic sugar for Monitor.Enter/Exit and helps prevent race conditions in multithreaded applications. Always lock on a private object to avoid deadlocks and external interference."
+    },
+    {
+      "id": 35,
+      "question": "What is the volatile keyword in C#?",
+      "options": [
+        "It makes variables change randomly",
+        "It prevents compiler optimizations that could cause issues in multithreaded scenarios",
+        "It makes variables temporary",
+        "It improves performance of variables"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The volatile keyword tells the compiler to prevent certain optimizations on a field that might be modified by multiple threads. It ensures that reads and writes to the field are not cached in CPU registers or reordered by the compiler, providing memory access ordering guarantees in multithreaded scenarios."
+    },
+    {
+      "id": 36,
+      "question": "What is the difference between Concurrent collections and regular collections?",
+      "options": [
+        "No difference",
+        "Concurrent collections are thread-safe for multiple readers/writers, regular collections are not",
+        "Regular collections are always faster",
+        "Concurrent collections can only store concurrent objects"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Concurrent collections (ConcurrentDictionary, ConcurrentQueue, etc.) are designed for thread-safe access by multiple threads simultaneously without external synchronization. They use lock-free algorithms and fine-grained locking. Regular collections require external synchronization (like locks) for thread safety."
+    },
+    {
+      "id": 37,
+      "question": "What is lazy initialization in C#?",
+      "options": [
+        "A performance anti-pattern",
+        "Deferring object creation until it's actually needed, often using Lazy<T>",
+        "A way to make constructors run slowly",
+        "A memory management technique"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Lazy initialization defers expensive object creation until the object is actually accessed. Lazy<T> provides thread-safe lazy initialization with various thread-safety modes. This improves startup performance and memory usage by avoiding unnecessary object creation and can break circular dependencies."
+    },
+    {
+      "id": 38,
+      "question": "What is the purpose of attributes in C#?",
+      "options": [
+        "To make classes more attractive",
+        "To provide metadata about code elements that can be read at runtime via reflection",
+        "To improve code performance",
+        "To handle exceptions automatically"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Attributes provide metadata about code elements (classes, methods, properties, etc.) without affecting their behavior directly. They can be read at runtime using reflection and are used extensively in frameworks for serialization, validation, ORM mapping, security, and many other cross-cutting concerns."
+    },
+    {
+      "id": 39,
+      "question": "What is the difference between value equality and reference equality?",
+      "options": [
+        "No difference",
+        "Value equality compares content/data, reference equality compares memory addresses",
+        "Reference equality compares content, value equality compares addresses",
+        "Both always work the same way"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reference equality (ReferenceEquals) checks if two references point to the same object instance in memory. Value equality (Equals method/== operator) compares the actual data/content. Value types use value equality by default, while reference types use reference equality unless overridden (like string, which uses value equality)."
+    },
+    {
+      "id": 40,
+      "question": "What is the difference between is and as operators in C#?",
+      "options": [
+        "No difference",
+        "'is' checks type compatibility and returns bool, 'as' attempts conversion and returns null on failure",
+        "'as' checks type, 'is' converts type",
+        "Both always return the same result"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The 'is' operator returns a boolean indicating whether an object is compatible with a given type. The 'as' operator attempts to cast an object to a type and returns null if the cast fails (rather than throwing an exception). C# 7+ enhanced 'is' with pattern matching capabilities including variable declaration."
+    }
+  ]
+}

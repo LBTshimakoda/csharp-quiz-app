@@ -11,7 +11,8 @@
         "A database query language",
         "A markup language for styling web pages"
       ],
-      "correctAnswer": 0
+      "correctAnswer": 0,
+      "explanation": "JavaScript is a high-level, interpreted programming language that was originally designed for web browsers but now runs in many environments. It's dynamically typed, supports multiple programming paradigms (procedural, object-oriented, and functional), and is essential for modern web development, enabling interactive websites and complex web applications."
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
         "Integer",
         "Undefined"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "JavaScript doesn't have a separate 'Integer' data type. Instead, it has a single 'Number' type that represents both integers and floating-point numbers. All numbers in JavaScript are stored as 64-bit floating-point values, following the IEEE 754 standard."
     },
     {
       "id": 3,
@@ -33,7 +35,8 @@
         "object",
         "boolean"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "This is a well-known quirk in JavaScript. 'typeof null' returns 'object', which is actually a bug that has been preserved for backward compatibility. Null should logically return 'null', but this behavior has existed since the early days of JavaScript and changing it would break existing code."
     },
     {
       "id": 4,
@@ -44,7 +47,8 @@
         "shift()",
         "unshift()"
       ],
-      "correctAnswer": 0
+      "correctAnswer": 0,
+      "explanation": "The push() method adds one or more elements to the end of an array and returns the new length of the array. It mutates the original array. For example: [1,2,3].push(4) results in [1,2,3,4]. The other methods: pop() removes from end, shift() removes from beginning, unshift() adds to beginning."
     },
     {
       "id": 5,
@@ -55,7 +59,8 @@
         "'==' checks value only, '===' checks both type and value",
         "Both check type and value"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "The '==' operator performs type coercion before comparison, meaning it converts operands to the same type before comparing values. The '===' operator (strict equality) checks both type and value without any conversion. For example: '5' == 5 is true (string converted to number), but '5' === 5 is false (different types)."
     },
     {
       "id": 6,
@@ -66,7 +71,8 @@
         "A method to close database connections",
         "A way to end a loop"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "A closure is created when a function is defined inside another function and has access to the outer function's variables. The inner function 'closes over' these variables, maintaining access to them even after the outer function has finished executing. This is a powerful feature used in module patterns, data privacy, and functional programming."
     },
     {
       "id": 7,
@@ -77,7 +83,8 @@
         "Template literals",
         "Arrow functions"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "Destructuring assignment allows you to extract values from arrays or properties from objects into distinct variables. For example: const [a, b] = [1, 2] or const {name, age} = person. It provides a concise way to unpack values and is commonly used in function parameters and importing modules."
     },
     {
       "id": 8,
@@ -88,7 +95,8 @@
         "The object that the function is called on",
         "It's always undefined"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "The value of 'this' in JavaScript depends on how a function is called (runtime binding), not where it's defined. When a method is called on an object, 'this' refers to that object. In global functions, 'this' refers to the global object (window in browsers). Arrow functions inherit 'this' from their enclosing scope."
     },
     {
       "id": 9,
@@ -99,7 +107,8 @@
         "filter()",
         "reduce()"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "The map() method creates a new array by calling a provided function on every element in the original array. It doesn't modify the original array. forEach() executes a function for each element but returns undefined, filter() returns elements that pass a test, and reduce() reduces the array to a single value."
     },
     {
       "id": 10,
@@ -110,7 +119,8 @@
         "To create new threads",
         "To optimize memory usage"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "Async/await is syntactic sugar for working with Promises, making asynchronous code easier to read and write. The 'async' keyword makes a function return a Promise, while 'await' pauses the execution of the async function until the Promise resolves. This allows writing asynchronous code that looks synchronous, avoiding 'callback hell'."
     },
     {
       "id": 11,
@@ -121,7 +131,8 @@
         "Optimizing code for better performance",
         "Converting code to machine language"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "Hoisting is JavaScript's behavior of moving variable and function declarations to the top of their containing scope during the compilation phase. This means you can use variables and functions before they're declared in the code. However, only declarations are hoisted, not initializations. 'var' declarations are hoisted and initialized with 'undefined', while 'let' and 'const' are hoisted but not initialized."
     },
     {
       "id": 12,
@@ -132,7 +143,8 @@
         "JSON.parse(JSON.stringify())",
         "None of the above"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "JSON.parse(JSON.stringify()) creates a deep copy by serializing the object to JSON and then parsing it back. However, it has limitations: it doesn't handle functions, undefined, symbols, or circular references. Object.assign() and the spread operator only create shallow copies, copying only the first level of properties."
     },
     {
       "id": 13,
@@ -143,7 +155,8 @@
         "'var' and 'const' have block scope, 'let' has function scope",
         "All have global scope"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "'var' has function scope and is hoisted with 'undefined' initialization. 'let' and 'const' have block scope and are hoisted but not initialized (temporal dead zone). 'const' requires initialization and cannot be reassigned, while 'let' can be reassigned. Using 'let' and 'const' helps prevent common bugs related to scope and hoisting."
     },
     {
       "id": 14,
@@ -154,7 +167,8 @@
         "A way to create loops",
         "A method to handle errors"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises have three states: pending (initial), fulfilled (operation completed successfully), or rejected (operation failed). They provide a cleaner alternative to callbacks for handling asynchronous code."
     },
     {
       "id": 15,
@@ -165,7 +179,8 @@
         "document.getElementsByClassName()",
         "document.select()"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "document.getElementById() is the most direct and efficient method to select an element by its ID attribute. It returns a single element or null if no element is found. While document.querySelector('#id') can also select by ID, getElementById() is faster and more semantic for this specific purpose."
     },
     {
       "id": 16,
@@ -176,7 +191,8 @@
         "To combine two arrays",
         "To validate input"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "The bind() method creates a new function with a specific 'this' value and optionally pre-filled arguments. Unlike call() and apply() which invoke the function immediately, bind() returns a new function that can be called later. This is useful for setting the context of 'this' in event handlers or callback functions."
     },
     {
       "id": 17,
@@ -187,7 +203,8 @@
         "A function that can only return values",
         "A function used for mathematical operations"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "Arrow functions provide a more concise syntax for writing functions. They have implicit return for single expressions, don't bind their own 'this' (inheriting from enclosing scope), and cannot be used as constructors. The syntax: (param) => expression or (param) => { statements }. They're particularly useful for callbacks and functional programming."
     },
     {
       "id": 18,
@@ -198,7 +215,8 @@
         "Concatenates strings",
         "Performs mathematical operations"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "The spread operator (...) expands an iterable (array, string, object) into individual elements. It can be used to: copy arrays ([...arr]), merge arrays ([...arr1, ...arr2]), pass array elements as function arguments (func(...args)), or copy/merge objects ({...obj1, ...obj2}). It provides a clean way to work with collections."
     },
     {
       "id": 19,
@@ -209,7 +227,8 @@
         "JavaScript is dynamically typed",
         "JavaScript cannot handle asynchronous operations"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "JavaScript is dynamically typed, meaning variables don't need explicit type declarations and can hold values of any type. Types are determined at runtime, and variables can change types during execution. This flexibility makes JavaScript easy to learn but can lead to runtime errors that statically typed languages catch at compile time."
     },
     {
       "id": 20,
@@ -220,7 +239,8 @@
         "To import external libraries",
         "To define constants"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "The 'use strict' directive enables strict mode, which makes JavaScript more secure and less prone to errors. It: prevents use of undeclared variables, makes assignments to non-writable properties throw errors, prevents duplicate parameter names, and disables some confusing or poorly thought-out features. It helps catch common mistakes and 'unsafe' actions."
     },
     {
       "id": 21,
@@ -231,7 +251,8 @@
         "Events are canceled automatically",
         "Events create bubbles on screen"
       ],
-      "correctAnswer": 0
+      "correctAnswer": 0,
+      "explanation": "Event bubbling is the process where an event starts from the deepest target element and bubbles up through its parent elements to the document root. For example, if you click a button inside a div, the click event fires on the button first, then bubbles up to the div, then to its parent, and so on. This allows parent elements to handle events from their children."
     },
     {
       "id": 22,
@@ -242,7 +263,8 @@
         "JSON.convert()",
         "JSON.toObject()"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "JSON.parse() converts a JSON string into a JavaScript object or value. It's the counterpart to JSON.stringify(), which converts JavaScript objects to JSON strings. JSON.parse() will throw a SyntaxError if the string is not valid JSON. It's commonly used when receiving data from web servers or reading from localStorage."
     },
     {
       "id": 23,
@@ -253,7 +275,8 @@
         "'undefined' is assigned, 'null' means no value has been assigned",
         "Both mean the same thing"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "'undefined' means a variable has been declared but not assigned a value, or a function doesn't return anything. 'null' is an intentional assignment representing 'no value' or 'empty value'. Both are falsy values, but null is an object type (typeof null === 'object') while undefined is its own type (typeof undefined === 'undefined')."
     },
     {
       "id": 24,
@@ -264,7 +287,8 @@
         "A function that handles errors",
         "A function that returns another function"
       ],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "explanation": "A callback function is passed as an argument to another function and is executed at a specific point in the outer function. Callbacks are fundamental to JavaScript's asynchronous nature and functional programming. Examples include event handlers, array methods like map() and forEach(), and asynchronous operations like setTimeout() and HTTP requests."
     },
     {
       "id": 25,
@@ -275,7 +299,8 @@
         "in",
         "hasOwnProperty"
       ],
-      "correctAnswer": 2
+      "correctAnswer": 2,
+      "explanation": "The 'in' operator returns true if the specified property exists in the object or its prototype chain. For example: 'name' in person. The hasOwnProperty() method checks only the object's own properties (not inherited), typeof checks the type of a value, and instanceof checks if an object is an instance of a specific constructor."
     }
   ]
 }
