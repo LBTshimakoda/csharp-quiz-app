@@ -1,10 +1,16 @@
-﻿<!-- src/app/components/question/question.html -->
+<!-- src/app/components/question/question.html -->
 <div class="question-container">
+  <!-- Question Header -->
+  <div class="question-header">
+    <div class="question-counter">{{ questionNumber }}/{{ totalQuestions }}</div>
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="(questionNumber / totalQuestions) * 100"></div>
+    </div>
+  </div>
+
   <!-- Question -->
   <div class="question-content">
-    <h2 class="question-title">
-      {{ questionNumber }}. {{ question.question }}
-    </h2>
+    <h2 class="question-title">{{ question.question }}</h2>
     
     <!-- Options -->
     <div class="options-container">
@@ -32,14 +38,13 @@
       class="btn btn-secondary"
       [disabled]="isFirstQuestion"
       (click)="onPrevious()">
-      Previous
+      <span class="btn-text">Previous</span>
+      <span class="btn-text-mobile">&#8592;</span>
     </button>
     
     <div class="answer-status">
       @if (isAnswerSelected) {
-        <span class="answer-selected">
-          ✓ Answer selected
-        </span>
+        <span class="answer-selected">&#10003;</span>
       }
     </div>
     
@@ -47,7 +52,8 @@
       class="btn btn-primary"
       [disabled]="!isAnswerSelected"
       (click)="onNext()">
-      {{ nextButtonText }}
+      <span class="btn-text">{{ nextButtonText }}</span>
+      <span class="btn-text-mobile">{{ isLastQuestion ? '&#10003;' : '&#8594;' }}</span>
     </button>
   </div>
 </div>
